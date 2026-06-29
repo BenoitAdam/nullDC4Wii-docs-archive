@@ -1,0 +1,2042 @@
+==Legend==
+
+{| class="wikitable sortable"
+! class="unsortable" | Class
+! Rating(?)
+! class="unsortable" | Legend
+|-
+|style="background:#5fff81" rowspan="2" | supported
+|*****
+|The game works with little to no glitches.
+|-
+|****
+|The game works with some few/very minor sound or other issues.
+|-
+|style="background:#fdfd8d;" | Playable
+|***
+|The game is playable, but bugs and slow FPS may interfere with gameplay.
+|-
+|style="background:#FFA500;" | Verified
+|**
+|The game is very slow/laggy/glitched gfxs and has have major issues.
+|-
+|style="background:#ff5f5f" | runnable
+|*
+|The game boots, but can't access main gameplay
+|-
+|style="background:#bcbcbc" | broken
+|[[File:X.png]]
+|The game doesn't even boot.
+|-
+|style="background:#bcbcbc" | not_tested
+|[[File:X.png]]
+|The game has not been tested for now
+|}
+
+== Retest broken games please ! ==
+
+
+<b>Chuchu Rocket is launchable since alpha 0.26 !! Please re-test all broken games !</b>
+
+=== Note 2 : Use I4STUB and I8STUB parameter if experiencing very low fps (around 1 FPS) ===
+
+== Testing procedure ==
+
+Test on Dolphin or a Real Wii
+
+Dolphin render can be better than Wii
+
+Report any differences
+
+== WinCE games ==
+
+WinCE games aren't supported (It demands extra power... maybe Wii U can achieve some result, but probably not Wii)
+
+You can still add them and put [WinCE] on it for information
+
+List of all WinCE games here : https://segaretro.org/Category:Dreamcast_Windows_CE_games
+
+== Game list ==
+
+====== 0 / A ======
+
+{| class="wikitable sortable"
+! Game title
+! style="width:10%" |Status
+! style="width:7%" |Format
+! style="width:7%" |Region
+! style="width:5%" |version
+! style="width:5%" |Preset
+! style="width:50%" |Notes
+|-
+| 18 Wheeler: American Pro Trucker*
+| {{Verified}}
+| EU
+| GDI
+| alpha0.28
+|
+| Garbage, lots of stuff doesn't display. FIFO erroor when beginning game
+|-
+| 4wheelthunder
+| {{Broken}}
+| GDI
+| ?
+| alpha0.05
+|
+|
+|-
+| 4x4 Evolution
+| {{not_tested}}
+| ?
+| ?
+|
+|
+| [WinCE]
+|-
+| Aerowings
+| {{Verified}}
+| GDI
+| EU
+| alpha0.30
+| CACHE_FAST
+| Can run 100% full speed with CACHE_VERY FAST. Also need to adjust with I4_STUB or I8_STUB, probably at least of of those is needed
+|-
+| Aerowings 2: Air Base
+| {{Broken}}
+| GDI
+| EU
+| alpha0.30
+|
+| Boot to BIOS
+|-
+| Airforce Delta
+| {{Broken}}
+| GDI
+| US
+| alpha0.30
+|
+| Boot to BIOS
+|-
+| Alice Dreams Tournament
+| {{broken}}
+| GDI
+| ?
+| alpha0.36
+|
+| Boot to BIOS
+|-
+| Alone in the Dark: The New Nightmare**
+| {{verified}}
+| GDI
+| EU
+| alpha0.30
+|
+| Messy FMV. Trash graphism even in CACHE_NORMAL
+|-
+| Aqua GT
+| {{Verified}}
+| GDI
+| EU
+| alpha0.28
+|
+| Menus okish Bad graphism & fps. Encouraging results nonetheless
+|-
+| Armada
+| {{Broken}}
+| GDI
+| ?
+| alpha0.06
+|
+| [WinCE] Black screen / crash
+|-
+| Atari Anniversary Edition
+| {{not_tested}}
+| ?
+| ?
+|
+|
+| [WinCE]
+|}
+
+====== B ======
+
+{| class="wikitable sortable"
+! Game title
+! style="width:10%" |Status
+! style="width:7%" |Format
+! style="width:7%" |Region
+! style="width:5%" |version
+! style="width:5%" |Preset
+! style="width:50%" |Notes
+|-
+| Bang! Gunship Elite
+| {{Broken}}
+| GDI
+| USA
+| alpha0.37
+| 
+| [WinCE] Boot to BIOS.
+|-
+| Bangai-o (Brightness Fix hack)
+| {{Verified}}
+| GDI
+| ?
+| alpha0.25
+|
+| Tested on vWii overclock. Missing graphics, no sound. Top quarter of screen only.
+|-
+| Berserk
+| {{Runnable}}
+| GDI
+| ?
+| alpha0.26
+|
+| 
+|-
+| Birdcage of Horror (Discs 1-6)
+| {{Broken}}
+| GDI
+| ?
+| alpha0.06
+|
+| Crashes on startup. Overclock advances to movie player then crashes.
+|-
+| Blue Stinger
+| {{Runnable}}
+| GDI
+| ?
+| alpha0.06
+|
+| Graphical defects, no sound. Crashed after opening cutscene.
+|-
+| Bomberman Online*
+| {{Playable}}
+| GDI
+| US
+| alpha0.34/alpha0.36
+| CACHE_FAST 8BPP_RGB565
+| FMV & gameplay a bit slow put 8BPP_RGB565 to get better visual / Intro doesn't display with alpha0.36 but works with alpha0.34
+|-
+| Bust A Move4**
+| {{Broken}}
+| GDI
+| ?
+| alpha0.03
+|
+| [WinCE]
+|}
+
+====== C ======
+
+{| class="wikitable sortable"
+! Game title
+! style="width:10%" |Status
+! style="width:7%" |Format
+! style="width:7%" |Region
+! style="width:5%" |version
+! style="width:5%" |Preset
+! style="width:50%" |Notes
+|-
+| Caesars Palace 2000
+| {{not_tested}}
+| ?
+| ?
+|
+|
+| [WinCE]
+|-
+| Capcom VS SNK2*
+| {{Runnable}}
+| GDI
+| ?
+| alpha0.03
+|
+|
+|-
+| Capcom vs. SNK: Millennium Fight 2000
+| {{runnable}}
+| GDI
+| USA
+| alpha 0.28
+|
+| Fan translation version - can't got past the message. Need to test basic untranslated rom.
+|-
+| Cannon Spike
+| {{Broken}}
+| GDI
+| ?
+| alpha0.06
+|
+| Crashes on menu
+|-
+| Carrier
+| {{Verified}}
+| GDI
+| EU
+| alpha0.28
+| CACHE_NORMAL
+| Green FMV/Pink FMV. CACHE NORMAL for better quality. Between 15 and 40 FPS
+|-
+| Castlevania (E3 Demo)
+| {{Playable}}
+| GDI
+| USA
+| alpha0.28
+|
+| Around 23 FPS when touching no buttons at start with CACHE_VERY_FAST. HALL level bug see github issues. CACHE_NORMAL to avoid some issue
+|-
+| Championship Surfer
+| {{not_tested}}
+| ?
+| ?
+|
+|
+| [WinCE]
+|-
+| Chu Chu Rocket
+| {{Playable}}
+| GDI
+| USA/EU
+| alpha0.34 / alpha0.35
+| CACHE_VERY_FAST ADVANCED_ALPHA
+| Between 20 and 50 Fps. / The rocket sound is too much longer: after a stage completed, in the new stage the sound is here 1min again 
+|-
+| Confidential Mission
+| {{Verified}}
+| GDI
+| EUR
+| alpha0.28
+|
+| not very good. Tested on light gun with dolphin doesn't work.
+|-
+| Cool Cool Town
+| {{Broken}}
+| GDI
+| ?
+| alpha0.06
+|
+| Black screen / crash
+|-
+| Crazy Taxi*
+| {{Playable}}
+| GDI
+|
+| alpha0.37
+| 4BPP_RGB565 8BPP_RGB565 CACHE_FAST
+| Use 8BPP > RGB565 to get the total fare to display. Use DECAL_ALPHA to get opaque cars, but this cost FPS. Use VERTEX_COLOR to get arrow & dollar colored & cars colored. Disabled or enable AGBR1555 alpha.
+|-
+| Crazy Taxi 2
+| {{Playable}}
+| GDI
+| EU
+| alpha0.34
+| CACHE_FAST
+| 
+|-
+| Cyber Troopers Virtual-On
+| {{Runnable}}
+| GDI/CUE
+| US
+| alpha0.28
+|
+| Green FMV. Janky menus, 5 FPS, trash. May need refine on 4BPP/8BPP. Someone test please.
+|}
+
+====== D ======
+
+{| class="wikitable sortable"
+! Game title
+! style="width:10%" |Status
+! style="width:7%" |Format
+! style="width:7%" |Region
+! style="width:5%" |version
+! style="width:5%" |Preset
+! style="width:50%" |Notes
+|-
+| D2 (Disc 1)
+| {{Runnable}}
+| GDI
+| ?
+| alpha0.06
+|
+| No sound, graphical issues. Crashed during opening cutscene.
+|-
+| Daytona USA
+| {{Verified}}
+| GDI
+| ?
+| alpha0.34
+| I4_FAST
+| Garbled graphics. Modify 4BPP option to gain FPS in the VMU menu / HAS SOUND!
+|-
+| Dead or Alive 2
+| {{Verified}}
+| GDI
+| EU
+| alpha0.28
+| CACHE_NORMAL
+| Running ok-ish, around 15 FPS
+|-
+| Densha De Go 2
+| {{Broken}}
+| bin/Cue
+| JP
+| alpha0.05
+|
+| [WinCE] Boot to bios
+|-
+| Demolition Racer
+| {{Verified}}
+| GDI
+| US
+| alpha0.30
+| PPZ_WRITE
+| Green FMV. Can arrive to gameplay but 5 FPS in CACHE_NORMAL. PPZ_WRITE otherwise texture blocking the view.
+|-
+| Dino Crisis
+| {{Verified}}
+| GDI
+| EU
+| alpha0.28
+| 
+| FMV and some menus are trash. In-Game ok
+|-
+| Divi Dead
+| {{Broken}}
+| CDI
+| ?
+| alpha0.28
+| 
+| Freeze at start
+|-
+| Dolphin BLue
+| {{Playable}}
+| GDI
+| ?
+| alpha0.36
+|
+| Very playable, with intro.
+|-
+| Ducati World
+| {{Broken}}
+| GDI
+| EU
+| alpha0.37
+|
+| [WinCE] Boot to BIOS.
+|-
+| Dreamcast Crazy Collection (hack)
+| {{Runnable}}
+| CDI
+| ?
+| alpha 0.28
+|
+| Black screen with fps counter moving
+|-
+| Dynamite Cop
+| {{Broken}}
+| GDI
+| ?
+| alpha0.06
+|
+| Black screen
+|}
+
+====== E ======
+
+{| class="wikitable sortable"
+! Game title
+! style="width:10%" |Status
+! style="width:7%" |Format
+! style="width:7%" |Region
+! style="width:5%" |version
+! style="width:5%" |Preset
+! style="width:50%" |Notes
+|-
+| Ecco the Dolphin: Defender of the Future
+| {{runnable}}
+| GDI
+| Europe
+| alpha 0.29
+|
+| Black screen, we can hear sound
+|-
+| Egg Elemental Gimmick Gear
+| {{Broken}}
+| GDI
+| USA
+| alpha0.05 / alpha0.06
+|
+| (a0.06) Crashes on opening cutscene.
+|-
+| Evil Dead
+| {{Runnable}}
+| GDI/CUE
+| FR
+| alpha0.28
+|
+| Trash, mostly green
+|-
+| Evil Twin: Cyprien's Chronicles
+| {{Broken}}
+| GDI
+| ?
+| alpha0.06
+|
+| Black screen
+|-
+| Evolution: The World of Sacred Device*
+| {{Playable}}
+| GDI
+| USA
+| alpha0.13
+|
+| Dialogue and textures are extremely bugged but runs fine without crashing
+|}
+
+====== F ======
+
+{| class="wikitable sortable"
+! Game title
+! style="width:10%" |Status
+! style="width:7%" |Format
+! style="width:7%" |Region
+! style="width:5%" |version
+! style="width:5%" |Preset
+! style="width:50%" |Notes
+|-
+| F1 World grand prix
+| {{Runnable}}
+| GDI
+| EU
+| alpha0.28
+| BPP to 
+| takes time to load. Green FMV. Menus hidden even with CACHE_NORMAL and 4BPP/8BPP to RGB565. Good candidate for dev/debug
+|-
+| F355 Challenge Passione Rossa
+| {{Verified}}
+| GDI
+| EU
+| alpha0.30
+|
+| Can go into gameplay but graphism is messy 
+|-
+| Faster than speed (Atomiswave port)
+| {{verified}}
+| GDI
+| ?
+| alpha 0.28
+| CACHE_NORMAL
+| Some graphic still glitch
+|-
+| Fighting Force 2
+| {{Playable}}
+| GDI
+| EU
+| alpha 0.30
+| 
+| Messy but playable with CACHE_VERY_FAST. Otherwise CACHE_NORMAL but slow FPS
+|-
+| Fighting Vipers 2
+| {{Playable}}
+| GDI
+| EU
+| alpha 0.30
+| 
+| Messy but playable with CACHE_VERY_FAST. Otherwise CACHE_NORMAL but slow FPS
+|-
+| Floigan Bros.
+| {{not_tested}}
+| ?
+| ?
+|
+|
+|
+|}
+
+====== G ======
+
+{| class="wikitable sortable"
+! Game title
+! style="width:10%" |Status
+! style="width:7%" |Format
+! style="width:7%" |Region
+! style="width:5%" |version
+! style="width:5%" |Preset
+! style="width:50%" |Notes
+|-
+| Garou: Mark of the Wolves
+| {{not_tested}}
+| ?
+| ?
+|
+|
+|
+|-
+| Gauntlet Legenrou: Mark of the Wolves
+| {{Runnable}}
+| GDI
+| EU
+| alpha0.28
+|
+| Green FMV
+|-
+| Grandia II
+| {{Verified}}
+| GDI
+| EU
+| alpha0.28
+|
+| Green FMV, 3D is Ok-ish (18 FPSin VERY_FAST_CACHE)
+|-
+| Grinch
+| {{Runnable}}
+| GDI
+| USA
+| alpha0.13
+|
+| No sound, Graphics issues, Random crashes
+|-
+| GTA 2
+| {{Playable}}
+| GDI
+| EU
+| alpha0.28
+| ADVANCED_ALPHA / CACHE_NORMAL
+| Glitchy FMV. 28 FPS in CACHE_VERY_FAST mode but trashy graphics in that case
+|-
+| GTA 3 (homebrew/fan port)
+| {{Broken}}
+| CDI
+| ?
+| alpha0.28
+|
+| Freeze
+|-
+| GTA 3 : Vice City(homebrew/fan port)
+| {{Broken}}
+| CDI
+| ?
+| alpha0.28
+|
+| Run to BIOS
+|-
+| Gunbird 2
+| {{Runnable}}
+| GDI
+| ?
+| alpha0.06
+|
+| Missing graphics, no sound. Top quarter of screen only.
+|}
+
+====== H ======
+
+{| class="wikitable sortable"
+! Game title
+! style="width:10%" |Status
+! style="width:7%" |Format
+! style="width:7%" |Region
+! style="width:5%" |version
+! style="width:5%" |Preset
+! style="width:50%" |Notes
+|-
+| Half Life**
+| {{Broken}}
+| CDI
+| US
+| alpha0.26
+|
+| [WinCE]
+|-
+| Halo (homebrew)
+| {{Broken}}
+| CDI
+| ?
+| alpha0.28
+|
+| freeze at start
+|-
+| Headhunter
+| {{not_tested}}
+| ?
+| ?
+|
+|
+|
+|-
+| Heavy Metal: Geomatrix
+| {{Broken}}
+| GDI
+| ?
+| alpha0.06
+|
+| Black screen
+|-
+| Hello Kitty : Lovely fruit Park
+| {{Broken}}
+| GDI
+| ?
+| alpha0.28
+|
+| [WinCE]
+|-
+| Hello Kitty : Cookie
+| {{Broken}}
+| GDI
+| ?
+| alpha0.28
+|
+| [WinCE]
+|-
+| Heretic (port)
+| {{Runnable}}
+| CDI
+| ?
+| alpha0.28
+|
+| Black screen, fps freeze but we can hear sound
+|-
+| Hidden and Dangerous
+| {{not_tested}}
+| ?
+| ?
+|
+|
+| [WinCE]
+|-
+| Hokuto No Ken - Fist of the north star
+| {{Runnable}}
+| GDI
+| ?
+| alpha0.36
+|
+| Runs but graphics bugs (can't see characters) so unplayable.
+|-
+| Hoyle Casino
+| {{not_tested}}
+| ?
+| ?
+|
+|
+| [WinCE]
+|-
+| House Of The Dead 2*
+| {{Broken}}
+| GDI
+| PAL
+| alpha0.28
+|
+| Game Launch, stucked to "Now checking" (Play Wii version instead ;) )
+|-
+| Hydro Thunder*
+| {{Playable}}
+| GDI
+| EU
+| alpha0.29
+| CACHE_VERY_FAST
+| Around 15 Fps. No Music
+|}
+
+====== I ======
+
+{| class="wikitable sortable"
+! Game title
+! style="width:10%" |Status
+! style="width:7%" |Format
+! style="width:7%" |Region
+! style="width:5%" |version
+! style="width:5%" |Preset
+! style="width:50%" |Notes
+|-
+| Ikaruga*
+| {{not_tested}}
+| ?
+| ?
+|
+|
+|
+|-
+| Illbleed
+| {{Broken}}
+| GDI
+| ?
+| alpha0.06
+|
+| Black screen
+|-
+| Intrepid Izzi
+| {{Runnable}}
+| CUE
+| USA/Japan
+| alpha0.09
+|
+| Boot to BIOS / alpha0.09 test with graphics: low / accuracy: accurate / ratio: fullscreen
+|}
+
+====== J ======
+
+{| class="wikitable sortable"
+! Game title
+! style="width:10%" |Status
+! style="width:7%" |Format
+! style="width:7%" |Region
+! style="width:5%" |version
+! style="width:5%" |Preset
+! style="width:50%" |Notes
+|-
+| Jazz Jackrabbit (OpenJazz homebrew port)
+| {{broken}}
+| CDI
+| ?
+|
+|
+| Homebrew port (OpenJazz). Requires original Jazz Jackrabbit game files.
+|-
+| Jet Set Radio (Jet Grind Radio)
+| {{Verified}}
+| GDI
+| EU
+| alpha0.31
+| CACHE_FAST
+| 
+|-
+| Jojo's Bizarre Adventure**
+| {{Verified}}
+| GDI/CUE
+| EUR
+| alpha0.17
+| LOW / 4BPP_RGB565
+| Weird, use 50% of the screen but "playable". Use LOW preset to avoid thin black lines. alpha 0.17 has best result for now. Health bar is only visible in 4BPP_RGB565
+|}
+
+====== K ======
+
+{| class="wikitable sortable"
+! Game title
+! style="width:10%" |Status
+! style="width:7%" |Format
+! style="width:7%" |Region
+! style="width:5%" |version
+! style="width:5%" |Preset
+! style="width:50%" |Notes
+|-
+| Karous*
+| {{Broken}}
+| CDI
+| ?
+| alpha0.28
+|
+| Freeze
+|-
+| Kenju
+| {{Playable}}
+| GDI
+| ?
+| alpha0.36
+|
+| 
+|-
+| King Of Fighters XI (hack/Atomiswave port)
+| {{Broken}}
+| GDI
+| ?
+| alpha0.28
+|
+| Freeze on boot/Runnable on nullDC-PSP
+|-
+| King of Fighters '99: Evolution
+| {{not_tested}}
+| ?
+| ?
+|
+|
+|
+|-
+| KISS Psycho Circus: The Nightmare Child
+| {{Broken}}
+| GDI
+| ?
+| alpha0.06
+|
+| [WinCE] Black screen / Crash
+|}
+
+====== L ======
+
+{| class="wikitable sortable"
+! Game title
+! style="width:10%" |Status
+! style="width:7%" |Format
+! style="width:7%" |Region
+! style="width:5%" |version
+! style="width:5%" |Preset
+! style="width:50%" |Notes
+|-
+| Legacy of Kain: Soul Reaver**
+| {{Runnable}}
+| GDI
+| EU
+| alpha0.28
+| 
+| Green FMV. Runs but Everything is black
+|-
+| LOL: Lack of Love
+| {{Broken}}
+| GDI
+| ?
+| alpha0.06
+|
+| Black screen
+|}
+
+====== M ======
+
+{| class="wikitable sortable"
+! Game title
+! style="width:10%" |Status
+! style="width:7%" |Format
+! style="width:7%" |Region
+! style="width:5%" |version
+! style="width:5%" |Preset
+! style="width:50%" |Notes
+|-
+| Macross M3
+| {{Broken}}
+| GDI
+| ?
+| alpha0.06
+|
+| Black screen
+|-
+| Magforce Racing
+| {{Runnable}}
+| GDI
+| EU
+| alpha0.28
+|
+| Can arrive to gameplay but then FIFO error. Menu slow because of 4BPP. But if I4_STUB if set up, menus are janky
+|-
+| Magic the Gathering
+| {{verified}}
+| GDI
+| ?
+| alpha0.28
+|
+|
+|-
+| Mars Matrix
+| {{not_tested}}
+| ?
+| ?
+|
+|
+|
+|-
+| Marvel vs. Capcom: Clash of Super Heroes
+| {{Playable}}
+| GDI
+| EU
+| alpha 0.30
+| 
+| Very Similar to Jojo : Only top 50% of the screen displays. Need 4BPP/8BPP to CI4_FAST/CI8_FAST at least (maybe stub)
+|-
+| Marvel vs. Capcom 2: New Age of Heroes
+| {{Runnable}}
+| CDI
+| ?
+| alpha 0.28
+| 
+| Slowish even with 4BPP/8BPP to I4/I8 Stub, around 5FPS
+|-
+| Maximum Pool
+| {{not_tested}}
+| ?
+| ?
+|
+|
+| [WinCE]
+|-
+| Maximum Speed
+| {{playable}}
+| GDI
+| ?
+| alpha0.34
+|
+|
+|-
+| Metropolis Street Racer
+| {{Verified}}
+| GDI
+| EU
+| alpha0.28
+|
+| Green FMV. Menu Ok (20/30 FPS) Gameplay around 10FPS
+|-
+| Midway's Greatest Arcade Hits Vol. 1
+| {{not_tested}}
+| ?
+| ?
+|
+|
+| [WinCE]
+|-
+| Midway's Greatest Arcade Hits Vol. 2
+| {{not_tested}}
+| ?
+| ?
+|
+|
+| [WinCE]
+|-
+| Mortal Kombat Gold**
+| {{Playable}}
+| GDI
+| EU
+| alpha0.28
+|
+| Black screen on intro but we can hear sound. In-game is correct, around 30 FPS
+|-
+| Mr Driller**
+| {{Verified}}
+| GDI
+| EU
+| alpha0.28
+| 
+| Very fast with CI4/CI8 FAST and CACHE_VERY_FAST (50FPS) but janky graphic
+|}
+
+====== N ======
+
+{| class="wikitable sortable"
+! Game title
+! style="width:10%" |Status
+! style="width:7%" |Format
+! style="width:7%" |Region
+! style="width:5%" |version
+! style="width:5%" |Preset
+! style="width:50%" |Notes
+|-
+| Nakoruru - The Gift She Gave Me (English Patched)
+| {{Broken}}
+| GDI
+| ?
+| alpha0.06
+|
+| Crashes on menu
+|-
+| Napple Tale - Arsi in Daydream (English Patched)
+| {{Playable}}
+| GDI
+| ?
+| alpha0.34
+|
+| Some visual graphic issues
+|-
+| Never 7
+| {{Broken}}
+| bin/cue
+| JP ?
+| alpha0.05
+|
+| Boot directly to BIOS (bin/cue not supported ?)
+|-
+| NFL 2K
+| {{not_tested}}
+| ?
+| ?
+|
+|
+|
+|-
+| NFL 2K1
+| {{not_tested}}
+| ?
+| ?
+|
+|
+|
+|-
+| NFL Quarterback Club 2001
+| {{not_tested}}
+| ?
+| ?
+|
+|
+| [WinCE]
+|-
+| Nightmare Creatures II**
+| {{Broken}}
+| ?
+| ?
+|
+|
+| [WinCE]
+|}
+
+====== O ======
+
+{| class="wikitable sortable"
+! Game title
+! style="width:10%" |Status
+! style="width:7%" |Format
+! style="width:7%" |Region
+! style="width:5%" |version
+! style="width:5%" |Preset
+! style="width:50%" |Notes
+|-
+| Omikron: The Nomad Soul
+| {{Runnable}}
+| GDI
+| EU
+| alpha0.28
+|
+| like Whacky Racer, the main image is off
+|-
+| OOga Booga
+| {{broken}}
+| GDI
+| USA
+| alpha0.28
+|
+| Black screen, hear a sound then very low fps even in I4/I8 Stub
+|-
+| Open Sonic
+| {{Broken}}
+| CDI
+| ?
+| alpha0.28 / alpha0.30
+|
+| Boot to Bios
+|}
+
+====== P ======
+
+{| class="wikitable sortable"
+! Game title
+! style="width:10%" |Status
+! style="width:7%" |Format
+! style="width:7%" |Region
+! style="width:5%" |version
+! style="width:5%" |Preset
+! style="width:50%" |Notes
+|-
+| Pen Pen
+| {{Playable}}
+| GDI
+| EU
+| alpha0.28
+|
+| Better with CACHE_NORMAL to the cost of FPS
+|-
+| Phantasy Star Online
+| {{Broken}}
+| GDI
+| ?
+| alpha0.06
+|
+| Black screen
+|-
+| Postal (homebrew)
+| {{broken}}
+| CDI
+| US
+| alpha0.28
+|
+| Freeze
+|-
+| Power Stone
+| {{Playable}}
+| GDI
+| US
+| alpha0.37
+| CACHE_FAST RGB565_VQ_ALPHA
+| Not perfect but runs. RGB565_VQ_ALPHA to "Black Transparent" to get sparkle display correctly
+|-
+| Power Stone 2
+| {{Verified}}
+| GDI
+| EU
+| alpha0.37
+| CACHE_FAST CI8_fast
+| Some graphical glitch. I8 consume FPS. I8_stub = characters glitchy / I8 Optimized = black / CI8 fast is ok. RGB565_VQ_ALPHA to "Black Transparent" to get sparkle display correctly
+|-
+| Prince of Persia: Arabian Nights**
+| {{Broken}}
+| GDI
+| ?
+| alpha0.06
+|
+| Green screen then crashes
+|-
+| Pro Pinball
+| {{Runnable}}
+| GDI
+| EU
+| alpha0.28
+|
+| Can't go past the movie, black screen freeze
+|-
+| Project Justice
+| {{Verified}}
+| GDI
+| EU
+| alpha0.28
+|
+| Best result around 20 FPS in-game
+|-
+| Proppeler arena
+| {{verified}}
+| GDI
+| EU
+| alpha 0.28
+|
+| Runs slow (8 fps in menu,  12 FPS in game)
+|-
+| Puyo Puyo! DA (English Patched)*
+| {{Runnable}}
+| GDI
+| ?
+| alpha0.06
+|
+| Good framerate/graphics but timing indicators missing (instant lose).
+|-
+| Puyo Puyo 4/n
+| {{Runnable}}
+| GDI
+| EU
+|
+|
+| Green FMV / Garbage graphic no menu
+|-
+| Puyo Puyo Fever*
+| {{broken}}
+| GDI
+| JP
+| alpha0.28
+|
+| block at ARM (SEGA logo) : Undefined ARM instruction 53455349 at 00000044
+|}
+
+====== Q ======
+
+{| class="wikitable sortable"
+! Game title
+! style="width:10%" |Status
+! style="width:7%" |Format
+! style="width:7%" |Region
+! style="width:5%" |version
+! style="width:5%" |Preset
+! style="width:50%" |Notes
+|-
+| Q*bert
+| {{not_tested}}
+| ?
+| ?
+|
+|
+| [WinCE]
+|-
+| Quake III Arena**
+| {{verified}}
+| GDI
+| EU
+| alpha0.28
+|
+| 10FPS with CACHE_NORMAL
+|}
+
+====== R ======
+
+{| class="wikitable sortable"
+! Game title
+! style="width:10%" |Status
+! style="width:7%" |Format
+! style="width:7%" |Region
+! style="width:5%" |version
+! style="width:5%" |Preset
+! style="width:50%" |Notes
+|-
+| Railroad Tycoon II
+| {{not_tested}}
+| ?
+| ?
+|
+|
+| [WinCE]
+|-
+| Rainbow Cotton
+| {{Runnable}}
+| GDI/CUE
+| EUR
+| alpha0.09
+|
+| Boot directly to BIOS
+|-
+| Rainbow Six**
+| {{not_tested}}
+| ?
+| ?
+|
+|
+| [WinCE]
+|-
+| Rayman 2: The Great Escape**
+| {{Verified}}
+| GDI
+| ?
+| alpha0.34
+| 
+| Some stuff don't appear on a real wii (ok on dolphin). Black alpha texture on real wii, need to check on dolphin.
+|-
+| Ready 2 Rumble Boxing
+| {{Verified}}
+| GDI
+| EU
+| alpha0.28
+| VERY_FAST
+| Green FMV. Menus Ok. Gameplay ok 25 FPS. Encouraging results with CACHE_VERY_FAST
+|-
+| Ready 2 Rumble Boxing: Round 2
+| {{Verified}}
+| GDI
+| EU
+| alpha0.28
+| VERY_FAST
+| Green FMV. Menus Ok. Gameplay ok 25 FPS. Encouraging results with CACHE_VERY_FAST
+|-
+| Rent a Hero No 1 (English Patched)
+| {{Broken}}
+| GDI
+| ?
+| alpha0.06
+|
+| Black screen
+|-
+| Resident Evil 2*
+| {{Broken}}
+| GDI
+| ?
+| alpha0.06
+|
+| [WinCE] Black screen
+|-
+| Resident Evil 2 EU/PAL*
+| {{Broken}}
+| GDI
+| EU/PAL
+| alpha0.24
+|
+| [WinCE] Freeze. Note: PAL version has a selector for 50/60Hz before launching game/movie
+|-
+| Resident Evil 3*
+| {{verified}}
+| GDI
+| ?
+| alpha0.35
+|
+| Performance/graphic isn't satisfying in general
+|-
+| Resident Evil - Code: Veronica
+| {{Runnable}}
+| GDI
+| EU
+| alpha0.29
+|
+| Very trashy menu, can't see anything
+|-
+| Re-Volt**
+| {{Playable}}
+| GDI
+| EU
+| alpha0.28
+|
+| Still slow & janky but encouraging result anyway. Haven't try to tweak parameters
+|-
+| Rez
+| {{Broken}}
+| GDI
+| EU
+| alpha0.25 / alpha0.28
+|
+| Freeze at launch ( Core\IOS\USB\Bluetooth\BTEmu.cpp:407 E[IOS_WIIMOTE]: ACL queue size reached 100 - current packet will be dropped!)
+|-
+| Run-Dim as Black Soul
+| {{Broken}}
+| GDI
+| ?
+| alpha0.06
+|
+| Black screen / Crash
+|-
+| Rush Rush Rally*
+| {{Broken}}
+| CDI
+| ?
+| alpha0.28
+|
+| Freeze at start. WinCE game ?
+|}
+
+====== S ======
+
+{| class="wikitable sortable"
+! Game title
+! style="width:10%" |Status
+! style="width:7%" |Format
+! style="width:7%" |Region
+! style="width:5%" |version
+! style="width:5%" |Preset
+! style="width:50%" |Notes
+|-
+| Sakura Wars Columns 2 (English Patched)
+| {{Broken}}
+| GDI
+| ?
+| alpha0.06
+|
+| Black screen
+|-
+| Samba de Amigo*
+| {{Verified}}
+| GDI
+| EU
+| alpha0.28
+|
+| Interesting result, could be in a Playable state if performance and graphics gets better
+|-
+| San Francisco Rush 2049
+| {{not_tested}}
+| ?
+| ?
+|
+|
+|
+|-
+| Seaman
+| {{not_tested}}
+| ?
+| ?
+|
+|
+|
+|-
+| Sega Bass Fishing
+| {{Broken}}
+| GDI
+| EU
+| alpha0.28
+|
+| Black screen
+|-
+| Sega Extreme Sports
+| {{Runnable}}
+| GDI
+| EU
+| alpha0.28
+|
+| Green FMV. Menu slow.
+|-
+| Sega GT
+| {{Runnable}}
+| GDI
+| EU
+| alpha0.28
+|
+| Green FMV. Menu okish but can't see what's selected.
+|-
+| Sega Rally 2
+| {{Broken}}
+| GDI
+| US
+| alpha0.07 / alpha0.37
+|
+| [WinCE] Freeze
+|-
+| Sega Tetris v2
+| {{Playable}}
+| GDI
+| JP
+| aplha0.34
+| ADVANCED_ALPHA CI4_FAST/CI8_FAST CACHE_FAST FRAMEBUFFER_2D
+| Try different 4BPP/8BPP parameters and report. ADVANCED_ALPHA needed for displaying score correctly. Activate Framebuffer 2D
+|-
+| Shenmue
+| {{Playable}}
+| GDI
+| JP
+| alpha0.30
+| CACHE_NORMAL ADVANCED_ALPHA
+| Can access main gameplay. Around 10 FPS. Intro crashes in CACHE_VERY_FAST
+|-
+| Shenmue 2
+| {{Runnable}}
+| GDI
+| JP
+| alpha0.17
+|
+| Menu Ok. Freeze at "Hong Kong" (probably fixed in recent version)
+|-
+| Sidney 2000
+| {{Verified}}
+| GDI
+| EU
+| alpha0.28
+|
+| Green FMV. Can go into gameplay but trashy and slow
+|-
+| Silent Scope
+| {{Verified}}
+| GDI
+| EU
+| alpha0.28
+| CACHE_NORMAL
+| Lots of flashing problem when entering gameplay
+|-
+| Skies of Arcadia*
+| {{Broken}}
+| GDI
+| ?
+| alpha0.06
+|
+| Black screen
+|-
+| Sno-Cross Championship Racing
+| {{not_tested}}
+| ?
+| ?
+|
+|
+| [WinCE]
+|-
+| Sonic Adventure*
+| {{Verified}}
+| GDI
+| PAL
+| alpha0.28
+| 
+| Between 12 and 20 FPS in VERY_FAST CACHE
+|-
+| Sonic Adventure 2*
+| {{Broken}}
+| GDI
+| USA
+| alpha0.28
+|
+| Doesn't boot
+|-
+| Sonic Shuffle
+| {{Broken}}
+| GDI
+| ?
+| alpha0.06
+|
+| Black screen
+|-
+| Soul Calibur*
+| {{Verified}}
+| GDI
+| EU
+| alpha0.28
+|
+| very slow, around 5 FPS with CACHE_NORMAL
+|-
+| South Park: Chef's Luv Shack
+| {{not_tested}}
+| ?
+| ?
+|
+|
+| [WinCE]
+|-
+| South Park: Rally*
+| {{Runnable}}
+| GDI
+| EU
+| alpha0.28
+|
+| FIFO error (see castlevania HALL bug)
+|-
+| Space Channel 5
+| {{not_tested}}
+| ?
+| ?
+|
+|
+|
+|-
+| Space Channel 5 : Part 2
+| {{Broken}}
+| GDI
+| ?
+| alpha 0.28
+|
+| Freeze at launch like a WinCE game
+|-
+| Spawn: In Demon's Hand
+| {{Broken}}
+| GDI
+| ?
+| alpha0.06
+|
+| Can't progress past menu
+|-
+| Speed devils
+| {{Verified}}
+| GDI
+| EU
+| alpha0.28
+|
+| Can go in-game. Around 10FPS
+|-
+| Spider-Man**
+| {{Broken}}
+| GDI
+| ?
+| alpha0.06
+|
+| Black screen / Crash
+|-
+| Spirit of Speed 1937
+| {{not_tested}}
+| ?
+| ?
+|
+|
+| [WinCE]
+|-
+| StarLancer
+| {{not_tested}}
+| ?
+| ?
+|
+|
+| [WinCE]
+|-
+| Street Fighter Alpha 3
+| {{Broken}}
+| GDI
+| EU
+| alpha0.28
+|
+| Running in the dark (black screen)
+|-
+| Street Fighter III (packed with double impact)
+| {{verified}}
+| GDI
+| EU
+| alpha0.28
+|
+| 1/4 of the screen like Bangai-O. Flash all the time. 55 FPS in game
+|-
+| Street Fighter III: Double Impact
+| {{verified}}
+| GDI
+| EU
+| alpha0.28
+|
+| 1/4 of the screen like Bangai-O. Flash all the time. 55 FPS in game
+|-
+| Street Fighter 3rd Strike
+| {{Verified}}
+| GDI
+| EU
+| alpha0.28
+| LOW / CACHE_NORMAL
+| Fullscreen unlike other CPS3 games (Jojo and SF3.2) from 6 to 40 FPS depending of configuration.
+|-
+| Stupid invaders
+| {{Broken}}
+| CDI
+| EU
+| alpha0.28
+|
+| Black screen/Freeze
+|-
+| Sturmwind
+| {{Broken}}
+| CDI
+| ?
+| alpha0.28
+|
+| Black screen/Freeze
+|-
+| Sushi Bar (port)
+| {{verified}}
+| GDI
+| ?
+| alpha0.28
+|
+| transparency problem in game
+|-
+| Super Runabout San Francisco Edition
+| {{Broken}}
+| GDI and cue
+| US / EU
+| alpha0.07 / alpha0.37
+|
+| [WinCE] Boot to BIOS
+|}
+
+====== T ======
+
+{| class="wikitable sortable"
+! Game title
+! style="width:10%" |Status
+! style="width:7%" |Format
+! style="width:7%" |Region
+! style="width:5%" |version
+! style="width:5%" |Preset
+! style="width:50%" |Notes
+|-
+| Test Drive 6**
+| {{Playable}}
+| GDI
+| EU
+| alpha0.35
+| PPZ_WRITE CACHE_FAST
+| Infogrames FMV only shows in CMBR (unless CACHE_NORMAL). Others are ok. Menu ok. Much better with CACHE_NORMAL to the cost of performance. If very poor draw distance : activate PPZ_WRITE
+|-
+| The Flinstone
+| {{Verified}}
+| CDI
+| ?
+| alpha0.28
+|
+| Green FMV. Menu 20 to 50 FPS . Gameplay 3 to 12 FPS
+|-
+| The Lost Golumn (English Patched)
+| {{Broken}}
+| GDI
+| ?
+| alpha0.06
+|
+| Black screen
+|-
+| The Next Tetris**
+| {{not_tested}}
+| ?
+| ?
+|
+|
+| [WinCE]
+|-
+| The Ring: Terror's Realm
+| {{Broken}}
+| GDI
+| ?
+| alpha0.06
+|
+| Black screen
+|-
+| The Rumble fish 2
+| {{Playable}}
+| GDI
+| ?
+| alpha0.36
+|
+| Gaphical bub but totally playable.
+|-
+| The Typing of the Dead
+| {{Broken}}
+| GDI
+| ?
+| alpha0.06
+|
+| Black screen
+|-
+| Tokyo Highway Challenge
+| {{Verified}}
+| GDI
+| EU
+| alpha0.28
+| CACHE_NORMAL
+| 30 FPS in menu 18FPS in game
+|-
+| Tom Clancy's Rainbow Six**
+| {{not_tested}}
+| ?
+| ?
+|
+|
+| [WinCE]
+|-
+| Tomb Raider Chronicles**
+| {{not_tested}}
+| ?
+| ?
+|
+|
+| [WinCE]
+|-
+| Tomb Raider: The Last Revelation**
+| {{not_tested}}
+| ?
+| ?
+|
+|
+| [WinCE]
+|-
+| Tony Hawk Pro Skater**
+| {{Runnable}}
+| GDI
+| EU
+| alpha0.28
+|
+| Trashy FMV. Menu are okish. Gameplay is black
+|-
+| Tony Hawk Pro Skater 2**
+| {{verified}}
+| ?
+| ?
+| alpha0.28
+|
+| Gren FMV. Menu ok. Gameplay very trashy
+|-
+| Toy Commander
+| {{Verified}}
+| GDI
+| EU
+| alpha 0.28
+|
+| Correct. Around 10FPS in gameplay with CACHE_NORMAL
+|-
+| Triggerheart Exelica
+| {{Broken}}
+| ?
+| ?
+| alpha0.28
+|
+| Freeze at launch
+|-
+| Trickstyle
+| {{Verified}}
+| GDI
+| EU
+| alpha0.30
+|
+| okish I guess
+|}
+
+====== U ======
+
+{| class="wikitable sortable"
+! Game title
+! style="width:10%" |Status
+! style="width:7%" |Format
+! style="width:7%" |Region
+! style="width:5%" |version
+! style="width:5%" |Preset
+! style="width:50%" |Notes
+|-
+| Unreal Tournament**
+| {{not_tested}}
+| ?
+| ?
+|
+|
+|
+|-
+| Urban Chaos
+| {{not_tested}}
+| ?
+| ?
+|
+|
+| [WinCE]
+|}
+
+
+====== V/W/X/Y/Z ======
+
+{| class="wikitable sortable"
+! Game title
+! style="width:10%" |Status
+! style="width:7%" |Format
+! style="width:7%" |Region
+! style="width:5%" |version
+! style="width:5%" |Preset
+! style="width:50%" |Notes
+|-
+| Vigilante 8
+| {{Runnable}}
+| GDI
+| EU
+| alpha0.28
+|
+| Not good yet
+|-
+| Virtua Cop 2
+| {{Broken}}
+| GDI
+| ?
+| alpha0.06
+|
+| [WinCE] Black screen
+|-
+| Virtua Fighter 3b
+| {{Verified}}
+| GDI
+| EU
+| alpha0.28
+|
+| Runs okish but not fast enough. Better with CACHE_NORMAL
+|-
+| Virtua Striker
+| {{Verified}}
+| GDI
+| EU
+| alpha0.28
+|
+| Runs okish but not fast enough. Better with CACHE_NORMAL
+|-
+| Virtua Tennis
+| {{Verified}}
+| GDI
+| EU
+| alpha0.28
+| CACHE_NORMAL
+| Not very good
+|-
+| Virtua Tennis 2
+| {{not_tested}}
+| ?
+| ?
+|
+|
+|
+|-
+| Wacky Racers
+| {{Runnable}}
+| GDI
+| EU
+| alpha0.28
+|
+| Green FMV. Main menu is off, like jojo bug ?
+|-
+| Wetrix
+| {{Verified}}
+| GDI
+| EU
+| alpha0.28
+|
+| Some render problems
+|-
+| What's Shenmue ?
+| {{Verified}}
+| GDI
+|
+| alpha0.31
+|
+| Menu more or less ok. Some textures are missing. 7 FPS in CACHE_NORMAL
+|-
+| Who Wants to Be a Millionaire v1.000 (2000)
+| {{Broken}}
+| GDI
+| France
+| alpha0.34 /alpha0.35/alpha0.36
+|
+| Works with alpha0.34 and sound accelerate or slower and crackles./ No longer playable with alpha 0.35 and 0.36 because of no display.
+|-
+| Wild Metal
+| {{not_tested}}
+| ?
+| ?
+|
+|
+| [WinCE]
+|-
+| Worms Armageddon**
+| {{Broken}}
+| GDI
+| Europe
+| alpha0.09
+|
+| [WinCE]
+|-
+| Worms Pinball (prototype)
+| {{Broken}}
+| GDI
+| ?
+| alpha0.13
+|
+| Freeze (Probably a WinCE game, but try retesting)
+|-
+| Worms World Party**
+| {{Broken}}
+| GDI
+| Europe
+| alpha0.09
+|
+| [WinCE]
+|-
+| You Are a Tomato (homebrew)
+| {{Broken}}
+| CDI
+| ?
+| alpha0.28
+|
+| Freeze
+|-
+| Zero Gunner 2
+| {{not_tested}}
+| ?
+| ?
+|
+|
+|
+|-
+| Zombie Revenge
+| {{Playable}}
+| GDI
+| ?
+| alpha0.17
+|
+| No sound, lot of graphical issues. Very playable.
+|}
+
+Note : * This game exist natively on Wii (see below)
+
+Note : ** This game exist on PS1 or N64 (Try WiiSX/Wiistation or Not64)
+
+== Dreamcast games existing on Wii ==
+
+Just a reminder : don't forget those Dreamcast games/port/new version already natively runs on Wii :
+
+Gamecube :
+
+* 18 Wheeler
+* Capcom vs. SNK 2:EO
+* Castle Shikigami II
+* Crazy Taxi
+* Chaos Field
+* Donald Duck Going Quacker
+* Evolution Worlds
+* Hydro Thunder (Midway Arcade Treasures 3)
+* Ikaruga
+* Namco Museum
+* NBA 2K2
+* Phantasy Star Online 1&2
+* Phantasy Star Online 3
+* Puyo Pop Fever
+* Radirgy
+* Resident Evil 2
+* Resident Evil 3
+* Resident Evil Code Veronica X
+* San Francisco Rush 2049 (Midway Arcade Treasures 3)
+* Skies of Arcadia Legends
+* Sonic Adventure DX
+* Sonic Adventure 2 Battle
+* Soulcalibur II
+
+
+Wii : 
+
+* Bomberman Blast (WiiWare) (very similar, 8 player game possible)
+* Densha De Go (ok it's not the same but I love densha de go so yeah)
+* House of the dead 2&3
+* Karous
+* MDK2 (enhanced WiiWare version)
+* Rush Rush Rally (WiiWare)
+* Samba de Amigo
+* Sega Bass Fishing
