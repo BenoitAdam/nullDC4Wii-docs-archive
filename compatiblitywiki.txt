@@ -36,17 +36,64 @@
 == Retest broken games please ! ==
 
 
-<b>Chuchu Rocket is launchable since alpha 0.26 !! Please re-test all broken games !</b>
+<b>Chuchu Rocket is launchable since alpha 0.26 !! Please re-test all broken games that haven't been tested at least on alpha0.26 !</b>
 
-=== Note 2 : Use I4STUB and I8STUB parameter if experiencing very low fps (around 1 FPS) ===
+== Testing procedure & creating the best preset ==
 
-== Testing procedure ==
+Test on Dolphin or a Real Wii. Dolphin render can be better than Wii
 
-Test on Dolphin or a Real Wii
+Report any differences between those two
 
-Dolphin render can be better than Wii
+Creating the best preset for the game method :
 
-Report any differences
+1/ Launch with default preset
+
+2/ play a little bit the game (default stage, just input A/Start/A), 2/3 minutes is enough
+
+3/ If some things doesn't display good, try to change settings. Already we know that works :
+
+* fine (seam) lines in 2D sprites : put "LOW" as graphics
+* Z fighting : put FIXED DEPTH to "tight"
+* 2 player viewport (or 2 cameras in the same scene) = SPLITSCREEN
+
+4/ Flickering, fix can be :
+
+* BLEND_MODE (set to off)
+* TRANS_MODE (set to off)
+* ASYNC_RENDER (set to on)
+* DEPTH-CLIP (set to tight)
+
+5/ Other graphical things not display try :
+
+* 4BPP/8BPP to CI4_FAST or CI8_FAST
+* BG POLYGON to ON
+* PUNCH TROUGH to ON
+* TRANS_SORT to ON
+* RENDER TO TEX to ON
+* 2D Famebuffer = ON
+
+6/ off Canvas problem (screen too small or too big)
+
+* try xratio = on (or off)
+* CANVAS_WIDTH (try different values)
+
+7/ Restart the game, try CACHE_VERY_FAST and CACHE_FAST. Find the lowest compatible option for the game. They may crash heavy-scene thus, like Shenmue intro
+
+8/ If you want to dig more, try the game in early version of NullDC4Wii :
+
+* alpha0.25 = no sound and few compatibility but might get some good suprise
+* alpha0.28 = the state after
+* alpha 0.40 = good performance
+
+If you find a regression, find the exact version before/after the regression
+
+Always use CACHE_QUALITY to see it it fixes your graphical glitch.
+
+If you need advice, describe your graphical problem in Claude or Gemini and attach the gxrend.cpp file of the project and ask him what's your problem and what preset to try
+
+
+Check here for example screenshot : 
+https://github.com/BenoitAdam/nullDC4Wii/issues/86
 
 == WinCE games ==
 
@@ -62,32 +109,40 @@ List of all WinCE games here : https://segaretro.org/Category:Dreamcast_Windows_
 
 {| class="wikitable sortable"
 ! Game title
-! style="width:10%" |Status
-! style="width:7%" |Format
-! style="width:7%" |Region
-! style="width:5%" |version
+! style="width:10%" |WiiU
+! style="width:10%" |Wii
+! style="width:5%" |Format
+! style="width:5%" |Version
 ! style="width:5%" |Preset
 ! style="width:50%" |Notes
 |-
 | 18 Wheeler: American Pro Trucker*
 | {{Verified}}
-| EU
-| GDI
+| {{Verified}}
+| GDI/EU
 | alpha0.28
 |
 | Garbage, lots of stuff doesn't display. FIFO erroor when beginning game
 |-
+| 24 hours of Le Mans
+| {{Runnable}}
+| {{Runnable}}
+| GDI/EU
+| alpha0.38
+| I4_STUB, I8_STUB
+| Menu ok. Loading very slow. Can't go to a race
+|-
 | 4wheelthunder
 | {{Broken}}
-| GDI
-| ?
+| {{Broken}}
+| GDI/?
 | alpha0.05
 |
 |
 |-
 | 4x4 Evolution
 | {{not_tested}}
-| ?
+| {{not_tested}}
 | ?
 |
 |
@@ -95,63 +150,71 @@ List of all WinCE games here : https://segaretro.org/Category:Dreamcast_Windows_
 |-
 | Aerowings
 | {{Verified}}
-| GDI
-| EU
+| {{Verified}}
+| GDI/EU
 | alpha0.30
 | CACHE_FAST
 | Can run 100% full speed with CACHE_VERY FAST. Also need to adjust with I4_STUB or I8_STUB, probably at least of of those is needed
 |-
 | Aerowings 2: Air Base
 | {{Broken}}
-| GDI
-| EU
+| {{Broken}}
+| GDI/EU
 | alpha0.30
 |
 | Boot to BIOS
 |-
 | Airforce Delta
 | {{Broken}}
-| GDI
-| US
+| {{Broken}}
+| GDI/US
 | alpha0.30
 |
 | Boot to BIOS
 |-
 | Alice Dreams Tournament
 | {{broken}}
-| GDI
-| ?
+| {{broken}}
+| GDI/?
 | alpha0.36
 |
 | Boot to BIOS
 |-
 | Alone in the Dark: The New Nightmare**
 | {{verified}}
-| GDI
-| EU
-| alpha0.30
+| {{verified}}
+| GDI/EU
+| alpha0.38
 |
-| Messy FMV. Trash graphism even in CACHE_NORMAL
+| Still Messy FMV. Trash graphism even in CACHE_NORMAL. Try BLEND_MODE in next version, and RGB565 transparent (Hack)
 |-
 | Aqua GT
 | {{Verified}}
-| GDI
-| EU
+| {{Verified}}
+| GDI/EU
 | alpha0.28
 |
 | Menus okish Bad graphism & fps. Encouraging results nonetheless
 |-
 | Armada
 | {{Broken}}
-| GDI
-| ?
+| {{Broken}}
+| GDI/?
 | alpha0.06
 |
 | [WinCE] Black screen / crash
 |-
+| Army men - Savage Hero
+| {{Verified}}
+| {{Verified}}
+| GDI/?
+| alpha0.38
+|
+| Mostly buggy. Try I4_STUB and/or I8_STUB
+|-
 | Atari Anniversary Edition
 | {{not_tested}}
-| ?
+| {{not_tested}}
 | ?
 |
 |
@@ -162,65 +225,65 @@ List of all WinCE games here : https://segaretro.org/Category:Dreamcast_Windows_
 
 {| class="wikitable sortable"
 ! Game title
-! style="width:10%" |Status
-! style="width:7%" |Format
-! style="width:7%" |Region
-! style="width:5%" |version
+! style="width:10%" |WiiU
+! style="width:10%" |Wii
+! style="width:5%" |Format
+! style="width:5%" |Version
 ! style="width:5%" |Preset
 ! style="width:50%" |Notes
 |-
 | Bang! Gunship Elite
 | {{Broken}}
-| GDI
-| USA
+| {{Broken}}
+| GDI/USA
 | alpha0.37
-| 
+|
 | [WinCE] Boot to BIOS.
 |-
 | Bangai-o (Brightness Fix hack)
 | {{Verified}}
-| GDI
-| ?
-| alpha0.25
+| {{Verified}}
+| GDI/?
+| alpha0.38
 |
-| Tested on vWii overclock. Missing graphics, no sound. Top quarter of screen only.
+| even with the 240p fix bug : now it's half left of the screen only
 |-
 | Berserk
 | {{Runnable}}
-| GDI
-| ?
+| {{Runnable}}
+| GDI/?
 | alpha0.26
 |
-| 
+|
 |-
 | Birdcage of Horror (Discs 1-6)
 | {{Broken}}
-| GDI
-| ?
+| {{Broken}}
+| GDI/?
 | alpha0.06
 |
 | Crashes on startup. Overclock advances to movie player then crashes.
 |-
 | Blue Stinger
 | {{Runnable}}
-| GDI
-| ?
+| {{Runnable}}
+| GDI/?
 | alpha0.06
 |
 | Graphical defects, no sound. Crashed after opening cutscene.
 |-
 | Bomberman Online*
-| {{Playable}}
-| GDI
-| US
-| alpha0.34/alpha0.36
-| CACHE_FAST 8BPP_RGB565
-| FMV & gameplay a bit slow put 8BPP_RGB565 to get better visual / Intro doesn't display with alpha0.36 but works with alpha0.34
+| {{Supported}} ****
+| {{Supported}}
+| GDI/US
+| alpha0.50
+| CACHE_NORMAL
+| FMV a bit slow (especially on Wii). Menu Ok. Gameplay ok
 |-
 | Bust A Move4**
 | {{Broken}}
-| GDI
-| ?
+| {{Broken}}
+| GDI/?
 | alpha0.03
 |
 | [WinCE]
@@ -230,16 +293,16 @@ List of all WinCE games here : https://segaretro.org/Category:Dreamcast_Windows_
 
 {| class="wikitable sortable"
 ! Game title
-! style="width:10%" |Status
-! style="width:7%" |Format
-! style="width:7%" |Region
-! style="width:5%" |version
+! style="width:10%" |WiiU
+! style="width:10%" |Wii
+! style="width:5%" |Format
+! style="width:5%" |Version
 ! style="width:5%" |Preset
 ! style="width:50%" |Notes
 |-
 | Caesars Palace 2000
 | {{not_tested}}
-| ?
+| {{not_tested}}
 | ?
 |
 |
@@ -247,96 +310,112 @@ List of all WinCE games here : https://segaretro.org/Category:Dreamcast_Windows_
 |-
 | Capcom VS SNK2*
 | {{Runnable}}
-| GDI
-| ?
+| {{Runnable}}
+| GDI/?
 | alpha0.03
 |
-|
+| (RENDER_DELAY ?)
 |-
 | Capcom vs. SNK: Millennium Fight 2000
 | {{runnable}}
-| GDI
-| USA
+| {{runnable}}
+| GDI/USA
 | alpha 0.28
 |
-| Fan translation version - can't got past the message. Need to test basic untranslated rom.
+| Fan translation version - can't got past the message. Need to test basic untranslated rom. (RENDER_DELAY ?)
 |-
 | Cannon Spike
-| {{Broken}}
-| GDI
-| ?
-| alpha0.06
-|
-| Crashes on menu
+| {{Playable}}
+| {{Playable}}
+| GDI/?
+| alpha0.50
+| CACHE_VERY_FAST / FIXED_DEPTH tight
+| Menu OK. Gameplay OK. Put FIXED DEPTH to "Tight" to avoid Z-Fighting.
 |-
 | Carrier
 | {{Verified}}
-| GDI
-| EU
+| {{Verified}}
+| GDI/EU
 | alpha0.28
 | CACHE_NORMAL
 | Green FMV/Pink FMV. CACHE NORMAL for better quality. Between 15 and 40 FPS
 |-
 | Castlevania (E3 Demo)
+| {{Supported}}
 | {{Playable}}
-| GDI
-| USA
-| alpha0.28
+| GDI/USA
+| alpha0.50
 |
-| Around 23 FPS when touching no buttons at start with CACHE_VERY_FAST. HALL level bug see github issues. CACHE_NORMAL to avoid some issue
+| Around 32 FPS when touching no buttons at start with CACHE_VERY_FAST. HALL level bug see github issues. CACHE_NORMAL to avoid some texturing issue
 |-
 | Championship Surfer
 | {{not_tested}}
-| ?
+| {{not_tested}}
 | ?
 |
 |
 | [WinCE]
 |-
-| Chu Chu Rocket
+| Charge and blast
 | {{Playable}}
-| GDI
-| USA/EU
-| alpha0.34 / alpha0.35
-| CACHE_VERY_FAST ADVANCED_ALPHA
-| Between 20 and 50 Fps. / The rocket sound is too much longer: after a stage completed, in the new stage the sound is here 1min again 
+| {{Playable}}
+| GDI/EU
+| alpha0.38
+|
+| A bit slow but Playable
+|-
+| Chu Chu Rocket
+| {{Supported}} ****
+| {{Playable}}
+| GDI/USA/EU
+| alpha0.50
+| CACHE_VERY_FAST ADVANCED_ALPHA FIXED_DEPTH_TIGHT
+| Between 20 and 50 Fps. / The rocket sound is too much longer: after a stage completed, in the new stage the sound is here 1min again. FIXED_DEPTH_TIGHT to make everything appear correctly on real hardware / For me, it's very good on Wii U! Just the sound (issue about it).
 |-
 | Confidential Mission
-| {{Verified}}
-| GDI
-| EUR
-| alpha0.28
+| {{Playable}}
+| {{Playable}}
+| GDI/EUR
+| alpha0.38
 |
-| not very good. Tested on light gun with dolphin doesn't work.
+| Okish. Tested on light gun with dolphin doesn't work.
 |-
-| Cool Cool Town
-| {{Broken}}
-| GDI
-| ?
-| alpha0.06
+| Cool Cool Toon
+| {{Playable}}
+| {{Playable}}
+| GDI/JP
+| alpha0.50
 |
-| Black screen / crash
+| Slow FPS
+|-
+| Cosmic Smash
+| {{Broken}}
+| {{Broken}}
+| GDI/JP
+| alpha0.51
+|
+| Shows glitched SEGA logo and turns into a black screen
 |-
 | Crazy Taxi*
+| {{Supported}}
 | {{Playable}}
 | GDI
-|
-| alpha0.37
-| 4BPP_RGB565 8BPP_RGB565 CACHE_FAST
-| Use 8BPP > RGB565 to get the total fare to display. Use DECAL_ALPHA to get opaque cars, but this cost FPS. Use VERTEX_COLOR to get arrow & dollar colored & cars colored. Disabled or enable AGBR1555 alpha.
+| alpha0.50
+| CACHE_NORMAL FPS_BOOST
+| Use DECAL_ALPHA to get opaque cars, but this cost FPS. Use VERTEX_COLOR to get arrow & dollar colored & cars colored. FPS_BOOST can work
 |-
 | Crazy Taxi 2
+| {{Supported}}
 | {{Playable}}
-| GDI
-| EU
-| alpha0.34
-| CACHE_FAST
-| 
+| GDI/EU
+| alpha0.50
+| CACHE_NORMAL FPS_BOOST
+| Use DECAL_ALPHA to get opaque cars, but this cost FPS. Use VERTEX_COLOR to get arrow & dollar colored & cars colored. FPS_BOOST can work
 |-
 | Cyber Troopers Virtual-On
 | {{Runnable}}
-| GDI/CUE
-| US
+| {{Runnable}}
+| GDI/CUE/US
 | alpha0.28
 |
 | Green FMV. Janky menus, 5 FPS, trash. May need refine on 4BPP/8BPP. Someone test please.
@@ -346,97 +425,105 @@ List of all WinCE games here : https://segaretro.org/Category:Dreamcast_Windows_
 
 {| class="wikitable sortable"
 ! Game title
-! style="width:10%" |Status
-! style="width:7%" |Format
-! style="width:7%" |Region
-! style="width:5%" |version
+! style="width:10%" |WiiU
+! style="width:10%" |Wii
+! style="width:5%" |Format
+! style="width:5%" |Version
 ! style="width:5%" |Preset
 ! style="width:50%" |Notes
 |-
 | D2 (Disc 1)
 | {{Runnable}}
-| GDI
-| ?
+| {{Runnable}}
+| GDI/?
 | alpha0.06
 |
 | No sound, graphical issues. Crashed during opening cutscene.
 |-
 | Daytona USA
-| {{Verified}}
-| GDI
-| ?
-| alpha0.34
-| I4_FAST
-| Garbled graphics. Modify 4BPP option to gain FPS in the VMU menu / HAS SOUND!
+| {{Supported}}
+| {{Playable}}
+| GDI/?
+| alpha0.50
+| TRANS SORT FPS_BOOST
+| TRANS_SORT for solving menu & logo flickering. Can use FPS_BOOST also
 |-
 | Dead or Alive 2
 | {{Verified}}
-| GDI
-| EU
+| {{Verified}}
+| GDI/EU
 | alpha0.28
 | CACHE_NORMAL
 | Running ok-ish, around 15 FPS
 |-
 | Densha De Go 2
 | {{Broken}}
-| bin/Cue
-| JP
+| {{Broken}}
+| bin/Cue/JP
 | alpha0.05
 |
 | [WinCE] Boot to bios
 |-
 | Demolition Racer
 | {{Verified}}
-| GDI
-| US
-| alpha0.30
+| {{Verified}}
+| GDI/US
+| alpha0.39
 | PPZ_WRITE
-| Green FMV. Can arrive to gameplay but 5 FPS in CACHE_NORMAL. PPZ_WRITE otherwise texture blocking the view.
+| Can arrive to gameplay but 10 FPS in CACHE_FAST. PPZ_WRITE otherwise texture blocking the view. FIFO Error in most case. Or just Freeze.
+|- 
+| Demolish Fist
+| {{Supported}}
+| {{Playable}}
+| GDI/?
+| alpha0.52
+| 
+| 80% speed. Can use CACHE_FAST but no major difference in FPS? No music
 |-
 | Dino Crisis
-| {{Verified}}
-| GDI
-| EU
-| alpha0.28
-| 
-| FMV and some menus are trash. In-Game ok
+| {{Playable}}
+| {{Playable}}
+| GDI/EU
+| alpha0.41
+|
+| FMV show on the half left of screen. Menus ok. In-Game ok
 |-
 | Divi Dead
 | {{Broken}}
-| CDI
-| ?
+| {{Broken}}
+| CDI/?
 | alpha0.28
-| 
+|
 | Freeze at start
 |-
 | Dolphin BLue
 | {{Playable}}
-| GDI
-| ?
+| {{Playable}}
+| GDI/?
 | alpha0.36
 |
 | Very playable, with intro.
 |-
 | Ducati World
 | {{Broken}}
-| GDI
-| EU
+| {{Broken}}
+| GDI/EU
 | alpha0.37
 |
 | [WinCE] Boot to BIOS.
 |-
 | Dreamcast Crazy Collection (hack)
 | {{Runnable}}
-| CDI
-| ?
+| {{Runnable}}
+| CDI/?
 | alpha 0.28
 |
 | Black screen with fps counter moving
 |-
 | Dynamite Cop
 | {{Broken}}
-| GDI
-| ?
+| {{Broken}}
+| GDI/?
 | alpha0.06
 |
 | Black screen
@@ -446,49 +533,49 @@ List of all WinCE games here : https://segaretro.org/Category:Dreamcast_Windows_
 
 {| class="wikitable sortable"
 ! Game title
-! style="width:10%" |Status
-! style="width:7%" |Format
-! style="width:7%" |Region
-! style="width:5%" |version
+! style="width:10%" |WiiU
+! style="width:10%" |Wii
+! style="width:5%" |Format
+! style="width:5%" |Version
 ! style="width:5%" |Preset
 ! style="width:50%" |Notes
 |-
 | Ecco the Dolphin: Defender of the Future
+| {{Playable}}
 | {{runnable}}
-| GDI
-| Europe
-| alpha 0.29
+| GDI/Europe
+| alpha0.54
 |
-| Black screen, we can hear sound
+| Some graphicals bugs (the background scenary isn't showing up; it appears when you get closer: clipping?).
 |-
 | Egg Elemental Gimmick Gear
 | {{Broken}}
-| GDI
-| USA
+| {{Broken}}
+| GDI/USA
 | alpha0.05 / alpha0.06
 |
 | (a0.06) Crashes on opening cutscene.
 |-
 | Evil Dead
-| {{Runnable}}
-| GDI/CUE
-| FR
-| alpha0.28
+| {{Verified}}
+| {{Verified}}
+| GDI/CUE/FR
+| alpha0.39
 |
-| Trash, mostly green
+| FMV and menu ok. Gameplay meh. Try to tweak some settings, we never know.
 |-
 | Evil Twin: Cyprien's Chronicles
 | {{Broken}}
-| GDI
-| ?
+| {{Broken}}
+| GDI/?
 | alpha0.06
 |
 | Black screen
 |-
 | Evolution: The World of Sacred Device*
 | {{Playable}}
-| GDI
-| USA
+| {{Playable}}
+| GDI/USA
 | alpha0.13
 |
 | Dialogue and textures are extremely bugged but runs fine without crashing
@@ -498,56 +585,72 @@ List of all WinCE games here : https://segaretro.org/Category:Dreamcast_Windows_
 
 {| class="wikitable sortable"
 ! Game title
-! style="width:10%" |Status
-! style="width:7%" |Format
-! style="width:7%" |Region
-! style="width:5%" |version
+! style="width:10%" |WiiU
+! style="width:10%" |Wii
+! style="width:5%" |Format
+! style="width:5%" |Version
 ! style="width:5%" |Preset
 ! style="width:50%" |Notes
 |-
 | F1 World grand prix
 | {{Runnable}}
-| GDI
-| EU
+| {{Runnable}}
+| GDI/EU
 | alpha0.28
-| BPP to 
+| BPP to
 | takes time to load. Green FMV. Menus hidden even with CACHE_NORMAL and 4BPP/8BPP to RGB565. Good candidate for dev/debug
+|-
+| F1 World grand prix II
+| {{Runnable}}
+| {{Runnable}}
+| GDI/EU
+| alpha0.28
+|
+| takes time to load. Menus hidden even with CACHE_NORMAL and 4BPP/8BPP to RGB565 and ADVANCED_ALPHA. Good candidate for dev/debug.  ?
 |-
 | F355 Challenge Passione Rossa
 | {{Verified}}
-| GDI
-| EU
+| {{Verified}}
+| GDI/EU
 | alpha0.30
 |
-| Can go into gameplay but graphism is messy 
+| Can go into gameplay but graphism is messy
 |-
 | Faster than speed (Atomiswave port)
 | {{verified}}
-| GDI
-| ?
+| {{verified}}
+| GDI/?
 | alpha 0.28
 | CACHE_NORMAL
 | Some graphic still glitch
 |-
 | Fighting Force 2
 | {{Playable}}
-| GDI
-| EU
-| alpha 0.30
-| 
-| Messy but playable with CACHE_VERY_FAST. Otherwise CACHE_NORMAL but slow FPS
+| {{Playable}}
+| GDI/EU
+| alpha 0.38
+| CACHE_NORMAL
+| around 20FPS
 |-
 | Fighting Vipers 2
 | {{Playable}}
-| GDI
-| EU
-| alpha 0.30
+| {{Playable}}
+| GDI/EU
+| alpha 0.38
+| CACHE_NORMAL
+| around 20FPS
+|-
+| Force Five (Atomiswave)
+| {{runnable}}
+| {{Runnable}}
+| GDI/?
+| alpha 0.52
 | 
-| Messy but playable with CACHE_VERY_FAST. Otherwise CACHE_NORMAL but slow FPS
+| Endless time on VS screen
 |-
 | Floigan Bros.
 | {{not_tested}}
-| ?
+| {{not_tested}}
 | ?
 |
 |
@@ -558,16 +661,16 @@ List of all WinCE games here : https://segaretro.org/Category:Dreamcast_Windows_
 
 {| class="wikitable sortable"
 ! Game title
-! style="width:10%" |Status
-! style="width:7%" |Format
-! style="width:7%" |Region
-! style="width:5%" |version
+! style="width:10%" |WiiU
+! style="width:10%" |Wii
+! style="width:5%" |Format
+! style="width:5%" |Version
 ! style="width:5%" |Preset
 ! style="width:50%" |Notes
 |-
 | Garou: Mark of the Wolves
 | {{not_tested}}
-| ?
+| {{not_tested}}
 | ?
 |
 |
@@ -575,56 +678,56 @@ List of all WinCE games here : https://segaretro.org/Category:Dreamcast_Windows_
 |-
 | Gauntlet Legenrou: Mark of the Wolves
 | {{Runnable}}
-| GDI
-| EU
+| {{Runnable}}
+| GDI/EU
 | alpha0.28
 |
 | Green FMV
 |-
 | Grandia II
 | {{Verified}}
-| GDI
-| EU
-| alpha0.28
+| {{Verified}}
+| GDI/EU
+| alpha0.38
 |
-| Green FMV, 3D is Ok-ish (18 FPSin VERY_FAST_CACHE)
+| 3D is Ok-ish. 18 FPS in VERY_FAST_CACHE)
 |-
 | Grinch
 | {{Runnable}}
-| GDI
-| USA
+| {{Runnable}}
+| GDI/USA
 | alpha0.13
 |
 | No sound, Graphics issues, Random crashes
 |-
 | GTA 2
 | {{Playable}}
-| GDI
-| EU
-| alpha0.28
-| ADVANCED_ALPHA / CACHE_NORMAL
-| Glitchy FMV. 28 FPS in CACHE_VERY_FAST mode but trashy graphics in that case
+| {{Playable}}
+| GDI/EU
+| alpha0.50
+| CACHE_FAST
+| FMV ok. Menu ok. 28 FPS in CACHE_VERY_FAST mode but trashy graphics in that case
 |-
 | GTA 3 (homebrew/fan port)
 | {{Broken}}
-| CDI
-| ?
+| {{Broken}}
+| CDI/?
 | alpha0.28
 |
 | Freeze
 |-
 | GTA 3 : Vice City(homebrew/fan port)
 | {{Broken}}
-| CDI
-| ?
+| {{Broken}}
+| CDI/?
 | alpha0.28
 |
 | Run to BIOS
 |-
 | Gunbird 2
 | {{Runnable}}
-| GDI
-| ?
+| {{Runnable}}
+| GDI/?
 | alpha0.06
 |
 | Missing graphics, no sound. Top quarter of screen only.
@@ -634,88 +737,88 @@ List of all WinCE games here : https://segaretro.org/Category:Dreamcast_Windows_
 
 {| class="wikitable sortable"
 ! Game title
-! style="width:10%" |Status
-! style="width:7%" |Format
-! style="width:7%" |Region
-! style="width:5%" |version
+! style="width:10%" |WiiU
+! style="width:10%" |Wii
+! style="width:5%" |Format
+! style="width:5%" |Version
 ! style="width:5%" |Preset
 ! style="width:50%" |Notes
 |-
-| Half Life**
+| Half Life***
 | {{Broken}}
-| CDI
-| US
+| {{Broken}}
+| CDI/US
 | alpha0.26
 |
-| [WinCE]
+| [WinCE] ***Homebrew port, check here : https://github.com/MintFerret/xash3d-fwgs/
 |-
 | Halo (homebrew)
 | {{Broken}}
-| CDI
-| ?
+| {{Broken}}
+| CDI/?
 | alpha0.28
 |
 | freeze at start
 |-
 | Headhunter
-| {{not_tested}}
-| ?
-| ?
+| {{Verified}}
+| {{Verified}}
+| GDI/EU
+| alpha0.38
 |
-|
-|
+| Messy FMV like alone in the dark. Messy in gameplay
 |-
 | Heavy Metal: Geomatrix
 | {{Broken}}
-| GDI
-| ?
+| {{Broken}}
+| GDI/?
 | alpha0.06
 |
 | Black screen
 |-
 | Hello Kitty : Lovely fruit Park
 | {{Broken}}
-| GDI
-| ?
+| {{Broken}}
+| GDI/?
 | alpha0.28
 |
 | [WinCE]
 |-
 | Hello Kitty : Cookie
 | {{Broken}}
-| GDI
-| ?
+| {{Broken}}
+| GDI/?
 | alpha0.28
 |
 | [WinCE]
 |-
 | Heretic (port)
 | {{Runnable}}
-| CDI
-| ?
+| {{Runnable}}
+| CDI/?
 | alpha0.28
 |
 | Black screen, fps freeze but we can hear sound
 |-
 | Hidden and Dangerous
 | {{not_tested}}
-| ?
+| {{not_tested}}
 | ?
 |
 |
 | [WinCE]
 |-
-| Hokuto No Ken - Fist of the north star
-| {{Runnable}}
-| GDI
-| ?
-| alpha0.36
-|
-| Runs but graphics bugs (can't see characters) so unplayable.
+| Hokuto No Ken - Fist of the north star (atomiswave port)
+| {{Playable}}
+| {{Playable}}
+| GDI/JP
+| alpha0.54
+| HOKUTO_HACK
+| HOKUTO_HACK must be on or nothing shows. Only Stage 1 and Stage 2 are supported at the moment.
 |-
 | Hoyle Casino
 | {{not_tested}}
-| ?
+| {{not_tested}}
 | ?
 |
 |
@@ -723,16 +826,16 @@ List of all WinCE games here : https://segaretro.org/Category:Dreamcast_Windows_
 |-
 | House Of The Dead 2*
 | {{Broken}}
-| GDI
-| PAL
+| {{Broken}}
+| GDI/PAL
 | alpha0.28
 |
 | Game Launch, stucked to "Now checking" (Play Wii version instead ;) )
 |-
 | Hydro Thunder*
 | {{Playable}}
-| GDI
-| EU
+| {{Playable}}
+| GDI/EU
 | alpha0.29
 | CACHE_VERY_FAST
 | Around 15 Fps. No Music
@@ -742,16 +845,16 @@ List of all WinCE games here : https://segaretro.org/Category:Dreamcast_Windows_
 
 {| class="wikitable sortable"
 ! Game title
-! style="width:10%" |Status
-! style="width:7%" |Format
-! style="width:7%" |Region
-! style="width:5%" |version
+! style="width:10%" |WiiU
+! style="width:10%" |Wii
+! style="width:5%" |Format
+! style="width:5%" |Version
 ! style="width:5%" |Preset
 ! style="width:50%" |Notes
 |-
 | Ikaruga*
 | {{not_tested}}
-| ?
+| {{not_tested}}
 | ?
 |
 |
@@ -759,17 +862,17 @@ List of all WinCE games here : https://segaretro.org/Category:Dreamcast_Windows_
 |-
 | Illbleed
 | {{Broken}}
-| GDI
-| ?
+| {{Broken}}
+| GDI/?
 | alpha0.06
 |
 | Black screen
 |-
 | Intrepid Izzi
-| {{Runnable}}
-| CUE
-| USA/Japan
-| alpha0.09
+| {{Broken}}
+| {{Broken}}
+| CUE/USA/Japan
+| alpha0.09 / alpha0.38
 |
 | Boot to BIOS / alpha0.09 test with graphics: low / accuracy: accurate / ratio: fullscreen
 |}
@@ -778,76 +881,84 @@ List of all WinCE games here : https://segaretro.org/Category:Dreamcast_Windows_
 
 {| class="wikitable sortable"
 ! Game title
-! style="width:10%" |Status
-! style="width:7%" |Format
-! style="width:7%" |Region
-! style="width:5%" |version
+! style="width:10%" |WiiU
+! style="width:10%" |Wii
+! style="width:5%" |Format
+! style="width:5%" |Version
 ! style="width:5%" |Preset
 ! style="width:50%" |Notes
 |-
 | Jazz Jackrabbit (OpenJazz homebrew port)
 | {{broken}}
-| CDI
-| ?
+| {{broken}}
+| CDI/?
 |
 |
 | Homebrew port (OpenJazz). Requires original Jazz Jackrabbit game files.
 |-
 | Jet Set Radio (Jet Grind Radio)
-| {{Verified}}
-| GDI
-| EU
-| alpha0.31
-| CACHE_FAST
-| 
+| {{Playable}}
+| {{Playable}}
+| GDI/EU
+| alpha0.46
+| CACHE_FAST VERTEX_COLOR
+| Menu ok. 15 fps (probably more on vwii) / BG_POLY ON maybe ?
 |-
 | Jojo's Bizarre Adventure**
-| {{Verified}}
-| GDI/CUE
-| EUR
-| alpha0.17
-| LOW / 4BPP_RGB565
-| Weird, use 50% of the screen but "playable". Use LOW preset to avoid thin black lines. alpha 0.17 has best result for now. Health bar is only visible in 4BPP_RGB565
+| {{Supported}}
+| {{Supported}}
+| GDI/CUE/EUR
+| alpha0.50
+| LOW CACHE_NORMAL CI4_FAST JOJO_FIX
+| Use LOW preset to avoid thin black lines. Put CI4_FAST with JOJO_FIX they work together. Put ASYNC_RENDER for the health bar to stop flickering.
 |}
 
 ====== K ======
 
 {| class="wikitable sortable"
 ! Game title
-! style="width:10%" |Status
-! style="width:7%" |Format
-! style="width:7%" |Region
-! style="width:5%" |version
+! style="width:10%" |WiiU
+! style="width:10%" |Wii
+! style="width:5%" |Format
+! style="width:5%" |Version
 ! style="width:5%" |Preset
 ! style="width:50%" |Notes
 |-
 | Karous*
 | {{Broken}}
-| CDI
-| ?
+| {{Broken}}
+| CDI/?
 | alpha0.28
 |
 | Freeze
 |-
 | Kenju
+| {{Supported}}
 | {{Playable}}
-| GDI
-| ?
-| alpha0.36
+| GDI/?
+| alpha0.51
 |
-| 
+| Slow on Wii (75% of speed), haven't tried any presets for now
 |-
 | King Of Fighters XI (hack/Atomiswave port)
 | {{Broken}}
-| GDI
-| ?
-| alpha0.28
+| {{Broken}}
+| GDI/?
+| alpha0.52
 |
 | Freeze on boot/Runnable on nullDC-PSP
 |-
+| King Of Fighters Neowave (hack/Atomiswave port)
+| {{Broken}}
+| {{Broken}}
+| GDI/?
+| alpha0.52
+|
+| Freeze on boot
+|-
 | King of Fighters '99: Evolution
 | {{not_tested}}
-| ?
+| {{not_tested}}
 | ?
 |
 |
@@ -855,8 +966,8 @@ List of all WinCE games here : https://segaretro.org/Category:Dreamcast_Windows_
 |-
 | KISS Psycho Circus: The Nightmare Child
 | {{Broken}}
-| GDI
-| ?
+| {{Broken}}
+| GDI/?
 | alpha0.06
 |
 | [WinCE] Black screen / Crash
@@ -866,25 +977,25 @@ List of all WinCE games here : https://segaretro.org/Category:Dreamcast_Windows_
 
 {| class="wikitable sortable"
 ! Game title
-! style="width:10%" |Status
-! style="width:7%" |Format
-! style="width:7%" |Region
-! style="width:5%" |version
+! style="width:10%" |WiiU
+! style="width:10%" |Wii
+! style="width:5%" |Format
+! style="width:5%" |Version
 ! style="width:5%" |Preset
 ! style="width:50%" |Notes
 |-
 | Legacy of Kain: Soul Reaver**
-| {{Runnable}}
-| GDI
-| EU
-| alpha0.28
-| 
-| Green FMV. Runs but Everything is black
+| {{Playable}}
+| {{Playable}}
+| GDI/EU
+| alpha0.38
+| CACHE_FAST
+| Menu Black (use POD2 fix ?). Gameplay ok 35 fps
 |-
 | LOL: Lack of Love
 | {{Broken}}
-| GDI
-| ?
+| {{Broken}}
+| GDI/?
 | alpha0.06
 |
 | Black screen
@@ -894,40 +1005,40 @@ List of all WinCE games here : https://segaretro.org/Category:Dreamcast_Windows_
 
 {| class="wikitable sortable"
 ! Game title
-! style="width:10%" |Status
-! style="width:7%" |Format
-! style="width:7%" |Region
-! style="width:5%" |version
+! style="width:10%" |WiiU
+! style="width:10%" |Wii
+! style="width:5%" |Format
+! style="width:5%" |Version
 ! style="width:5%" |Preset
 ! style="width:50%" |Notes
 |-
 | Macross M3
 | {{Broken}}
-| GDI
-| ?
+| {{Broken}}
+| GDI/?
 | alpha0.06
 |
 | Black screen
 |-
 | Magforce Racing
-| {{Runnable}}
-| GDI
-| EU
-| alpha0.28
+| {{Verified}}
+| {{Verified}}
+| GDI/EU
+| alpha0.44
 |
-| Can arrive to gameplay but then FIFO error. Menu slow because of 4BPP. But if I4_STUB if set up, menus are janky
+| Menus Ok. Gameplay Trash. Sometimes FIFO error (see Castlevania HALL bug)
 |-
 | Magic the Gathering
 | {{verified}}
-| GDI
-| ?
+| {{verified}}
+| GDI/?
 | alpha0.28
 |
 |
 |-
 | Mars Matrix
 | {{not_tested}}
-| ?
+| {{not_tested}}
 | ?
 |
 |
@@ -935,23 +1046,23 @@ List of all WinCE games here : https://segaretro.org/Category:Dreamcast_Windows_
 |-
 | Marvel vs. Capcom: Clash of Super Heroes
 | {{Playable}}
-| GDI
-| EU
-| alpha 0.30
-| 
-| Very Similar to Jojo : Only top 50% of the screen displays. Need 4BPP/8BPP to CI4_FAST/CI8_FAST at least (maybe stub)
+| {{Playable}}
+| GDI/EU
+| alpha 0.47
+|
+| Try 2D Framebuffer and other options. 
 |-
 | Marvel vs. Capcom 2: New Age of Heroes
-| {{Runnable}}
-| CDI
-| ?
-| alpha 0.28
+| {{Supported}}
+| {{Supported}}
+| CDI/?
+| alpha 0.55
+| RENDER_DELAY
 | 
-| Slowish even with 4BPP/8BPP to I4/I8 Stub, around 5FPS
 |-
 | Maximum Pool
 | {{not_tested}}
-| ?
+| {{not_tested}}
 | ?
 |
 |
@@ -959,23 +1070,23 @@ List of all WinCE games here : https://segaretro.org/Category:Dreamcast_Windows_
 |-
 | Maximum Speed
 | {{playable}}
-| GDI
-| ?
+| {{playable}}
+| GDI/?
 | alpha0.34
 |
 |
 |-
 | Metropolis Street Racer
 | {{Verified}}
-| GDI
-| EU
+| {{Verified}}
+| GDI/EU
 | alpha0.28
 |
 | Green FMV. Menu Ok (20/30 FPS) Gameplay around 10FPS
 |-
 | Midway's Greatest Arcade Hits Vol. 1
 | {{not_tested}}
-| ?
+| {{not_tested}}
 | ?
 |
 |
@@ -983,7 +1094,7 @@ List of all WinCE games here : https://segaretro.org/Category:Dreamcast_Windows_
 |-
 | Midway's Greatest Arcade Hits Vol. 2
 | {{not_tested}}
-| ?
+| {{not_tested}}
 | ?
 |
 |
@@ -991,59 +1102,82 @@ List of all WinCE games here : https://segaretro.org/Category:Dreamcast_Windows_
 |-
 | Mortal Kombat Gold**
 | {{Playable}}
-| GDI
-| EU
+| {{Playable}}
+| GDI/EU
 | alpha0.28
 |
 | Black screen on intro but we can hear sound. In-game is correct, around 30 FPS
 |-
 | Mr Driller**
 | {{Verified}}
-| GDI
-| EU
+| {{Verified}}
+| GDI/EU
 | alpha0.28
-| 
+|
 | Very fast with CI4/CI8 FAST and CACHE_VERY_FAST (50FPS) but janky graphic
+|-
+| Mr Driller**
+| {{Verified}}
+| {{Verified}}
+| GDI/EU
+| alpha0.41
+|
+| Some problems corrected but lost FPS. Need investigation
 |}
 
 ====== N ======
 
 {| class="wikitable sortable"
 ! Game title
-! style="width:10%" |Status
-! style="width:7%" |Format
-! style="width:7%" |Region
-! style="width:5%" |version
+! style="width:10%" |WiiU
+! style="width:10%" |Wii
+! style="width:5%" |Format
+! style="width:5%" |Version
 ! style="width:5%" |Preset
 ! style="width:50%" |Notes
 |-
 | Nakoruru - The Gift She Gave Me (English Patched)
 | {{Broken}}
-| GDI
-| ?
+| {{Broken}}
+| GDI/?
 | alpha0.06
 |
-| Crashes on menu
+|-
+| Nanatsu no Hikan
+| {{verified}}
+| {{verified}}
+| CDI/JP
+| alpha0.45
+|
+| 
 |-
 | Napple Tale - Arsi in Daydream (English Patched)
 | {{Playable}}
-| GDI
-| ?
+| {{Playable}}
+| GDI/?
 | alpha0.34
 |
 | Some visual graphic issues
 |-
 | Never 7
 | {{Broken}}
-| bin/cue
-| JP ?
+| {{Broken}}
+| bin/cue/JP ?
 | alpha0.05
 |
 | Boot directly to BIOS (bin/cue not supported ?)
 |-
+| Nightmare creatures
+| {{Broken}}
+| {{Broken}}
+| GDI/EU
+| alpha0.38
+|
+| Freeze
+|-
 | NFL 2K
 | {{not_tested}}
-| ?
+| {{not_tested}}
 | ?
 |
 |
@@ -1051,7 +1185,7 @@ List of all WinCE games here : https://segaretro.org/Category:Dreamcast_Windows_
 |-
 | NFL 2K1
 | {{not_tested}}
-| ?
+| {{not_tested}}
 | ?
 |
 |
@@ -1059,7 +1193,7 @@ List of all WinCE games here : https://segaretro.org/Category:Dreamcast_Windows_
 |-
 | NFL Quarterback Club 2001
 | {{not_tested}}
-| ?
+| {{not_tested}}
 | ?
 |
 |
@@ -1067,7 +1201,7 @@ List of all WinCE games here : https://segaretro.org/Category:Dreamcast_Windows_
 |-
 | Nightmare Creatures II**
 | {{Broken}}
-| ?
+| {{Broken}}
 | ?
 |
 |
@@ -1078,33 +1212,33 @@ List of all WinCE games here : https://segaretro.org/Category:Dreamcast_Windows_
 
 {| class="wikitable sortable"
 ! Game title
-! style="width:10%" |Status
-! style="width:7%" |Format
-! style="width:7%" |Region
-! style="width:5%" |version
+! style="width:10%" |WiiU
+! style="width:10%" |Wii
+! style="width:5%" |Format
+! style="width:5%" |Version
 ! style="width:5%" |Preset
 ! style="width:50%" |Notes
 |-
 | Omikron: The Nomad Soul
-| {{Runnable}}
-| GDI
-| EU
-| alpha0.28
+| {{Verified}}
+| {{Verified}}
+| GDI/EU
+| alpha0.38
 |
-| like Whacky Racer, the main image is off
+| FMV mostly ok. Put CMBR if doesn't display well. Menu Ok. Gameplay Trash
 |-
 | OOga Booga
 | {{broken}}
-| GDI
-| USA
+| {{broken}}
+| GDI/USA
 | alpha0.28
 |
 | Black screen, hear a sound then very low fps even in I4/I8 Stub
 |-
 | Open Sonic
 | {{Broken}}
-| CDI
-| ?
+| {{Broken}}
+| CDI/?
 | alpha0.28 / alpha0.30
 |
 | Boot to Bios
@@ -1114,105 +1248,113 @@ List of all WinCE games here : https://segaretro.org/Category:Dreamcast_Windows_
 
 {| class="wikitable sortable"
 ! Game title
-! style="width:10%" |Status
-! style="width:7%" |Format
-! style="width:7%" |Region
-! style="width:5%" |version
+! style="width:10%" |WiiU
+! style="width:10%" |Wii
+! style="width:5%" |Format
+! style="width:5%" |Version
 ! style="width:5%" |Preset
 ! style="width:50%" |Notes
 |-
 | Pen Pen
 | {{Playable}}
-| GDI
-| EU
+| {{Playable}}
+| GDI/EU
 | alpha0.28
 |
 | Better with CACHE_NORMAL to the cost of FPS
 |-
 | Phantasy Star Online
 | {{Broken}}
-| GDI
-| ?
+| {{Broken}}
+| GDI/?
 | alpha0.06
 |
 | Black screen
 |-
+| POD 2
+| {{Playable}}
+| {{Playable}}
+| GDI/EU
+| alpha0.39
+|
+| Put OFF for RGB565_ALPHA, otherwise menu doesn't appear
+|-
 | Postal (homebrew)
 | {{broken}}
-| CDI
-| US
+| {{broken}}
+| CDI/US
 | alpha0.28
 |
 | Freeze
 |-
 | Power Stone
+| {{Supported}}
 | {{Playable}}
-| GDI
-| US
-| alpha0.37
-| CACHE_FAST RGB565_VQ_ALPHA
-| Not perfect but runs. RGB565_VQ_ALPHA to "Black Transparent" to get sparkle display correctly
+| GDI/US
+| alpha0.50
+| CACHE_NORMAL
+| 75% of speed on Wii. Can use FPS_BOOST (very few glitches)
 |-
 | Power Stone 2
-| {{Verified}}
-| GDI
-| EU
-| alpha0.37
-| CACHE_FAST CI8_fast
-| Some graphical glitch. I8 consume FPS. I8_stub = characters glitchy / I8 Optimized = black / CI8 fast is ok. RGB565_VQ_ALPHA to "Black Transparent" to get sparkle display correctly
+| {{Supported}}
+| {{Playable}}
+| GDI/EU
+| alpha0.50
+| CACHE_NORMAL
+| Probably like Power Stone 1
 |-
 | Prince of Persia: Arabian Nights**
 | {{Broken}}
-| GDI
-| ?
+| {{Broken}}
+| GDI/?
 | alpha0.06
 |
 | Green screen then crashes
 |-
 | Pro Pinball
 | {{Runnable}}
-| GDI
-| EU
+| {{Runnable}}
+| GDI/EU
 | alpha0.28
 |
 | Can't go past the movie, black screen freeze
 |-
 | Project Justice
-| {{Verified}}
-| GDI
-| EU
-| alpha0.28
+| {{Playable}}
+| {{Playable}}
+| GDI/EU
+| alpha0.41
 |
-| Best result around 20 FPS in-game
+| Best result around 25/30 FPS in-game (better in vWii). Try to tweak with parameters. 66% speed for now in starting fight (Arcade => AAA => round 1, fight)
 |-
 | Proppeler arena
 | {{verified}}
-| GDI
-| EU
+| {{verified}}
+| GDI/EU
 | alpha 0.28
 |
 | Runs slow (8 fps in menu,  12 FPS in game)
 |-
 | Puyo Puyo! DA (English Patched)*
 | {{Runnable}}
-| GDI
-| ?
+| {{Runnable}}
+| GDI/?
 | alpha0.06
 |
 | Good framerate/graphics but timing indicators missing (instant lose).
 |-
 | Puyo Puyo 4/n
 | {{Runnable}}
-| GDI
-| EU
+| {{Runnable}}
+| GDI/EU
 |
 |
 | Green FMV / Garbage graphic no menu
 |-
 | Puyo Puyo Fever*
 | {{broken}}
-| GDI
-| JP
+| {{broken}}
+| GDI/JP
 | alpha0.28
 |
 | block at ARM (SEGA logo) : Undefined ARM instruction 53455349 at 00000044
@@ -1222,16 +1364,16 @@ List of all WinCE games here : https://segaretro.org/Category:Dreamcast_Windows_
 
 {| class="wikitable sortable"
 ! Game title
-! style="width:10%" |Status
-! style="width:7%" |Format
-! style="width:7%" |Region
-! style="width:5%" |version
+! style="width:10%" |WiiU
+! style="width:10%" |Wii
+! style="width:5%" |Format
+! style="width:5%" |Version
 ! style="width:5%" |Preset
 ! style="width:50%" |Notes
 |-
 | Q*bert
 | {{not_tested}}
-| ?
+| {{not_tested}}
 | ?
 |
 |
@@ -1239,27 +1381,27 @@ List of all WinCE games here : https://segaretro.org/Category:Dreamcast_Windows_
 |-
 | Quake III Arena**
 | {{verified}}
-| GDI
-| EU
+| {{verified}}
+| GDI/EU
 | alpha0.28
 |
-| 10FPS with CACHE_NORMAL
+| 10FPS with CACHE_NORMAL. Please see this homebrew : https://github.com/Mayo1970/ioQuake3-wii/
 |}
 
 ====== R ======
 
 {| class="wikitable sortable"
 ! Game title
-! style="width:10%" |Status
-! style="width:7%" |Format
-! style="width:7%" |Region
-! style="width:5%" |version
+! style="width:10%" |WiiU
+! style="width:10%" |Wii
+! style="width:5%" |Format
+! style="width:5%" |Version
 ! style="width:5%" |Preset
 ! style="width:50%" |Notes
 |-
 | Railroad Tycoon II
 | {{not_tested}}
-| ?
+| {{not_tested}}
 | ?
 |
 |
@@ -1267,112 +1409,112 @@ List of all WinCE games here : https://segaretro.org/Category:Dreamcast_Windows_
 |-
 | Rainbow Cotton
 | {{Runnable}}
-| GDI/CUE
-| EUR
+| {{Runnable}}
+| GDI/CUE/EUR
 | alpha0.09
 |
 | Boot directly to BIOS
 |-
 | Rainbow Six**
 | {{not_tested}}
-| ?
+| {{not_tested}}
 | ?
 |
 |
 | [WinCE]
 |-
 | Rayman 2: The Great Escape**
-| {{Verified}}
-| GDI
-| ?
-| alpha0.34
-| 
-| Some stuff don't appear on a real wii (ok on dolphin). Black alpha texture on real wii, need to check on dolphin.
+| {{Playable}}
+| {{Playable}}
+| GDI/?
+| alpha0.50
+|
+| Getting out of the pirate boat gets lots of Z-Fighting as in Sonic Adventure 2. Try FIXED DEPTH to "Tight" to avoid Z-Fighting ?
 |-
 | Ready 2 Rumble Boxing
-| {{Verified}}
-| GDI
-| EU
-| alpha0.28
-| VERY_FAST
-| Green FMV. Menus Ok. Gameplay ok 25 FPS. Encouraging results with CACHE_VERY_FAST
+| {{Playable}}
+| {{Playable}}
+| GDI/EU
+| alpha0.42
+| CACHE_VERY_FAST
+| Green FMV. Menus Ok. Gameplay ok 25 FPS. Encouraging results with CACHE_VERY_FAST. Test with CACHE_NORMAL also
 |-
 | Ready 2 Rumble Boxing: Round 2
-| {{Verified}}
-| GDI
-| EU
-| alpha0.28
-| VERY_FAST
+| {{Playable}}
+| {{Playable}}
+| GDI/EU
+| alpha0.42
+| CACHE_VERY_FAST
 | Green FMV. Menus Ok. Gameplay ok 25 FPS. Encouraging results with CACHE_VERY_FAST
 |-
 | Rent a Hero No 1 (English Patched)
 | {{Broken}}
-| GDI
-| ?
+| {{Broken}}
+| GDI/?
 | alpha0.06
 |
 | Black screen
 |-
 | Resident Evil 2*
 | {{Broken}}
-| GDI
-| ?
+| {{Broken}}
+| GDI/?
 | alpha0.06
 |
 | [WinCE] Black screen
 |-
 | Resident Evil 2 EU/PAL*
 | {{Broken}}
-| GDI
-| EU/PAL
+| {{Broken}}
+| GDI/EU/PAL
 | alpha0.24
 |
 | [WinCE] Freeze. Note: PAL version has a selector for 50/60Hz before launching game/movie
 |-
 | Resident Evil 3*
-| {{verified}}
-| GDI
-| ?
-| alpha0.35
+| {{Playable}}
+| {{Playable}}
+| GDI/?
+| alpha0.41
 |
-| Performance/graphic isn't satisfying in general
+| FMV ok, Menu ok, gameplay ok
 |-
-| Resident Evil - Code: Veronica
-| {{Runnable}}
-| GDI
-| EU
+| Resident Evil - Code: Veronica*
+| {{Playable}}
+| {{Playable}}
+| GDI/EU
 | alpha0.29
 |
-| Very trashy menu, can't see anything
+| FMV ok. Menu Okish with some parameters. Gameplay around 11 FPS
 |-
 | Re-Volt**
 | {{Playable}}
-| GDI
-| EU
-| alpha0.28
-|
-| Still slow & janky but encouraging result anyway. Haven't try to tweak parameters
+| {{Playable}}
+| GDI/EU
+| alpha0.42
+| CACHE_VERY_FAST
+| CACHE_VERY_FAST otherwise very slow FPS. Strange because in other games we don't have such a difference
 |-
 | Rez
 | {{Broken}}
-| GDI
-| EU
-| alpha0.25 / alpha0.28
+| {{Broken}}
+| GDI/EU
+| alpha0.58
 |
-| Freeze at launch ( Core\IOS\USB\Bluetooth\BTEmu.cpp:407 E[IOS_WIIMOTE]: ACL queue size reached 100 - current packet will be dropped!)
+| Freezes at SEGA Logo.
 |-
 | Run-Dim as Black Soul
 | {{Broken}}
-| GDI
-| ?
+| {{Broken}}
+| GDI/?
 | alpha0.06
 |
 | Black screen / Crash
 |-
 | Rush Rush Rally*
 | {{Broken}}
-| CDI
-| ?
+| {{Broken}}
+| CDI/?
 | alpha0.28
 |
 | Freeze at start. WinCE game ?
@@ -1382,40 +1524,40 @@ List of all WinCE games here : https://segaretro.org/Category:Dreamcast_Windows_
 
 {| class="wikitable sortable"
 ! Game title
-! style="width:10%" |Status
-! style="width:7%" |Format
-! style="width:7%" |Region
-! style="width:5%" |version
+! style="width:10%" |WiiU
+! style="width:10%" |Wii
+! style="width:5%" |Format
+! style="width:5%" |Version
 ! style="width:5%" |Preset
 ! style="width:50%" |Notes
 |-
 | Sakura Wars Columns 2 (English Patched)
 | {{Broken}}
-| GDI
-| ?
+| {{Broken}}
+| GDI/?
 | alpha0.06
 |
 | Black screen
 |-
 | Samba de Amigo*
+| {{Playable}}
 | {{Verified}}
-| GDI
-| EU
-| alpha0.28
-|
-| Interesting result, could be in a Playable state if performance and graphics gets better
+| GDI/EU
+| alpha0.44
+| TRANS_SORT CACHE_VERY_FAST FPS_BOOST ASYNC_RENDER TMEM_CACHE
+| TRANS_SORT to see menu is mandatory. Interesting result, could be in a Playable state if performance and graphics gets better. 60% performance for now, could be 80% on Wii in the future. Probably Playable on WiiU
 |-
 | San Francisco Rush 2049
 | {{not_tested}}
-| ?
-| ?
+| {{Broken}}
+| GDI
+| alpha0.47
 |
-|
-|
+| Fails at start
 |-
 | Seaman
 | {{not_tested}}
-| ?
+| {{not_tested}}
 | ?
 |
 |
@@ -1423,87 +1565,87 @@ List of all WinCE games here : https://segaretro.org/Category:Dreamcast_Windows_
 |-
 | Sega Bass Fishing
 | {{Broken}}
-| GDI
-| EU
+| {{Broken}}
+| GDI/EU
 | alpha0.28
 |
 | Black screen
 |-
 | Sega Extreme Sports
 | {{Runnable}}
-| GDI
-| EU
+| {{Runnable}}
+| GDI/EU
 | alpha0.28
 |
 | Green FMV. Menu slow.
 |-
 | Sega GT
 | {{Runnable}}
-| GDI
-| EU
+| {{Runnable}}
+| GDI/EU
 | alpha0.28
 |
 | Green FMV. Menu okish but can't see what's selected.
 |-
 | Sega Rally 2
 | {{Broken}}
-| GDI
-| US
+| {{Broken}}
+| GDI/US
 | alpha0.07 / alpha0.37
 |
 | [WinCE] Freeze
 |-
 | Sega Tetris v2
+| {{Supported}}
 | {{Playable}}
-| GDI
-| JP
-| aplha0.34
-| ADVANCED_ALPHA CI4_FAST/CI8_FAST CACHE_FAST FRAMEBUFFER_2D
-| Try different 4BPP/8BPP parameters and report. ADVANCED_ALPHA needed for displaying score correctly. Activate Framebuffer 2D
+| GDI/JP
+| aplha0.50
+| CACHE_FAST FRAMEBUFFER_2D FPS_BOOST
+| ADVANCED_ALPHA needed for displaying score correctly (Can use FPS_BOOST thus). Activate Framebuffer 2D
 |-
 | Shenmue
 | {{Playable}}
-| GDI
-| JP
+| {{Playable}}
+| GDI/JP
 | alpha0.30
 | CACHE_NORMAL ADVANCED_ALPHA
 | Can access main gameplay. Around 10 FPS. Intro crashes in CACHE_VERY_FAST
 |-
 | Shenmue 2
 | {{Runnable}}
-| GDI
-| JP
+| {{Runnable}}
+| GDI/JP
 | alpha0.17
 |
 | Menu Ok. Freeze at "Hong Kong" (probably fixed in recent version)
 |-
 | Sidney 2000
 | {{Verified}}
-| GDI
-| EU
+| {{Verified}}
+| GDI/EU
 | alpha0.28
 |
 | Green FMV. Can go into gameplay but trashy and slow
 |-
 | Silent Scope
 | {{Verified}}
-| GDI
-| EU
+| {{Verified}}
+| GDI/EU
 | alpha0.28
 | CACHE_NORMAL
 | Lots of flashing problem when entering gameplay
 |-
 | Skies of Arcadia*
 | {{Broken}}
-| GDI
-| ?
+| {{Broken}}
+| GDI/?
 | alpha0.06
 |
 | Black screen
 |-
 | Sno-Cross Championship Racing
 | {{not_tested}}
-| ?
+| {{not_tested}}
 | ?
 |
 |
@@ -1511,39 +1653,39 @@ List of all WinCE games here : https://segaretro.org/Category:Dreamcast_Windows_
 |-
 | Sonic Adventure*
 | {{Verified}}
-| GDI
-| PAL
+| {{Verified}}
+| GDI/PAL
 | alpha0.28
-| 
+|
 | Between 12 and 20 FPS in VERY_FAST CACHE
 |-
 | Sonic Adventure 2*
-| {{Broken}}
-| GDI
-| USA
-| alpha0.28
-|
-| Doesn't boot
+| {{Playable}}
+| {{Playable}}
+| GDI/USA
+| alpha0.50
+| ASYNC_RENDER TMEM_CACHE CACHE_FAST FIXED_DEPTH = tight
+| Put FIXED DEPTH to "Tight" to avoid Z-Fighting. Not satsifable performance for a Sonic Game
 |-
 | Sonic Shuffle
 | {{Broken}}
-| GDI
-| ?
+| {{Broken}}
+| GDI/?
 | alpha0.06
 |
 | Black screen
 |-
 | Soul Calibur*
 | {{Verified}}
-| GDI
-| EU
+| {{Verified}}
+| GDI/EU
 | alpha0.28
 |
 | very slow, around 5 FPS with CACHE_NORMAL
 |-
 | South Park: Chef's Luv Shack
 | {{not_tested}}
-| ?
+| {{not_tested}}
 | ?
 |
 |
@@ -1551,55 +1693,55 @@ List of all WinCE games here : https://segaretro.org/Category:Dreamcast_Windows_
 |-
 | South Park: Rally*
 | {{Runnable}}
-| GDI
-| EU
+| {{Runnable}}
+| GDI/EU
 | alpha0.28
 |
 | FIFO error (see castlevania HALL bug)
 |-
 | Space Channel 5
-| {{not_tested}}
-| ?
-| ?
+| {{Verified}}
+| {{Verified}}
+| GDI/?
+| alpha 0.51
 |
-|
-|
+| Runs very slowly
 |-
 | Space Channel 5 : Part 2
 | {{Broken}}
-| GDI
-| ?
+| {{Broken}}
+| GDI/?
 | alpha 0.28
 |
 | Freeze at launch like a WinCE game
 |-
 | Spawn: In Demon's Hand
 | {{Broken}}
-| GDI
-| ?
+| {{Broken}}
+| GDI/?
 | alpha0.06
 |
 | Can't progress past menu
 |-
 | Speed devils
 | {{Verified}}
-| GDI
-| EU
+| {{Verified}}
+| GDI/EU
 | alpha0.28
 |
 | Can go in-game. Around 10FPS
 |-
 | Spider-Man**
 | {{Broken}}
-| GDI
-| ?
+| {{Broken}}
+| GDI/?
 | alpha0.06
 |
 | Black screen / Crash
 |-
 | Spirit of Speed 1937
 | {{not_tested}}
-| ?
+| {{not_tested}}
 | ?
 |
 |
@@ -1607,73 +1749,73 @@ List of all WinCE games here : https://segaretro.org/Category:Dreamcast_Windows_
 |-
 | StarLancer
 | {{not_tested}}
-| ?
+| {{not_tested}}
 | ?
 |
 |
 | [WinCE]
 |-
-| Street Fighter Alpha 3
+| Street Fighter Alpha 3**
 | {{Broken}}
-| GDI
-| EU
-| alpha0.28
+| {{Broken}}
+| GDI/EU
+| alpha0.47
 |
 | Running in the dark (black screen)
 |-
 | Street Fighter III (packed with double impact)
-| {{verified}}
-| GDI
-| EU
-| alpha0.28
-|
-| 1/4 of the screen like Bangai-O. Flash all the time. 55 FPS in game
+| {{Supported}}
+| {{Supported}}
+| GDI/EU
+| alpha0.47
+| LOW BLEND_MODE off CACHE_VERY_FAST CANVAS_WITDH=384
+| Put BLEND_MODE to off to avoid blinkings. CACHE_VERY_FAST to get acceptable performance. CANVAS_WITDH=384
 |-
 | Street Fighter III: Double Impact
-| {{verified}}
-| GDI
-| EU
-| alpha0.28
-|
-| 1/4 of the screen like Bangai-O. Flash all the time. 55 FPS in game
+| {{Supported}}
+| {{Supported}}
+| GDI/EU
+| alpha0.47
+| LOW BLEND_MODE off CACHE_VERY_FAST CANVAS_WITDH=384
+| Put BLEND_MODE to off to avoid blinkings. CACHE_VERY_FAST to get acceptable performance. CANVAS_WITDH=384 PUNCH_TROUGH and/or TRANS_SORT needed for some stages background
 |-
 | Street Fighter 3rd Strike
-| {{Verified}}
-| GDI
-| EU
-| alpha0.28
-| LOW / CACHE_NORMAL
-| Fullscreen unlike other CPS3 games (Jojo and SF3.2) from 6 to 40 FPS depending of configuration.
+| {{Playable}}
+| {{playable}}
+| GDI/EU
+| alpha0.50
+| LOW / CACHE_QUALITY
+| from 6 to 40 FPS depending of configuration. CACHE_QUALITY is mandatory
 |-
 | Stupid invaders
 | {{Broken}}
-| CDI
-| EU
+| {{Broken}}
+| CDI/EU
 | alpha0.28
 |
 | Black screen/Freeze
 |-
 | Sturmwind
 | {{Broken}}
-| CDI
-| ?
+| {{Broken}}
+| CDI/?
 | alpha0.28
 |
 | Black screen/Freeze
 |-
 | Sushi Bar (port)
 | {{verified}}
-| GDI
-| ?
+| {{verified}}
+| GDI/?
 | alpha0.28
 |
 | transparency problem in game
 |-
 | Super Runabout San Francisco Edition
 | {{Broken}}
-| GDI and cue
-| US / EU
-| alpha0.07 / alpha0.37
+| {{Broken}}
+| GDI and cue/US / EU
+| alpha0.37wince
 |
 | [WinCE] Boot to BIOS
 |}
@@ -1682,40 +1824,48 @@ List of all WinCE games here : https://segaretro.org/Category:Dreamcast_Windows_
 
 {| class="wikitable sortable"
 ! Game title
-! style="width:10%" |Status
-! style="width:7%" |Format
-! style="width:7%" |Region
-! style="width:5%" |version
+! style="width:10%" |WiiU
+! style="width:10%" |Wii
+! style="width:5%" |Format
+! style="width:5%" |Version
 ! style="width:5%" |Preset
 ! style="width:50%" |Notes
 |-
+| Taxi 2**
+| {{Broken}}
+| {{Broken}}
+| GDI/EU
+| alpha0.57
+| 
+| [WinCE] Freeze (White Screen)
+|-
 | Test Drive 6**
+| {{Supported}}
 | {{Playable}}
-| GDI
-| EU
-| alpha0.35
-| PPZ_WRITE CACHE_FAST
-| Infogrames FMV only shows in CMBR (unless CACHE_NORMAL). Others are ok. Menu ok. Much better with CACHE_NORMAL to the cost of performance. If very poor draw distance : activate PPZ_WRITE
+| GDI/EU
+| alpha0.50
+| PPZ_WRITE CACHE_NORMAL
+| Infogrames FMV only shows in CMBR (unless CACHE_QUALITY). Others are ok. Menu ok. If very poor draw distance : activate PPZ_WRITE. MIPMAP has to be off for better framerate. 2P split screen crash (FIFO error) even with SLIPT_SCREEN enabled
 |-
 | The Flinstone
 | {{Verified}}
-| CDI
-| ?
+| {{Verified}}
+| CDI/?
 | alpha0.28
 |
 | Green FMV. Menu 20 to 50 FPS . Gameplay 3 to 12 FPS
 |-
 | The Lost Golumn (English Patched)
 | {{Broken}}
-| GDI
-| ?
+| {{Broken}}
+| GDI/?
 | alpha0.06
 |
 | Black screen
 |-
 | The Next Tetris**
 | {{not_tested}}
-| ?
+| {{not_tested}}
 | ?
 |
 |
@@ -1723,39 +1873,39 @@ List of all WinCE games here : https://segaretro.org/Category:Dreamcast_Windows_
 |-
 | The Ring: Terror's Realm
 | {{Broken}}
-| GDI
-| ?
+| {{Broken}}
+| GDI/?
 | alpha0.06
 |
 | Black screen
 |-
 | The Rumble fish 2
 | {{Playable}}
-| GDI
-| ?
+| {{Playable}}
+| GDI/?
 | alpha0.36
 |
 | Gaphical bub but totally playable.
 |-
 | The Typing of the Dead
 | {{Broken}}
-| GDI
-| ?
-| alpha0.06
+| {{Broken}}
+| GDI/?
+| alpha0.38
 |
-| Black screen
+| Freeze even with 1 player and keyboard
 |-
 | Tokyo Highway Challenge
 | {{Verified}}
-| GDI
-| EU
+| {{Verified}}
+| GDI/EU
 | alpha0.28
 | CACHE_NORMAL
 | 30 FPS in menu 18FPS in game
 |-
 | Tom Clancy's Rainbow Six**
 | {{not_tested}}
-| ?
+| {{not_tested}}
 | ?
 |
 |
@@ -1763,7 +1913,7 @@ List of all WinCE games here : https://segaretro.org/Category:Dreamcast_Windows_
 |-
 | Tomb Raider Chronicles**
 | {{not_tested}}
-| ?
+| {{not_tested}}
 | ?
 |
 |
@@ -1771,49 +1921,49 @@ List of all WinCE games here : https://segaretro.org/Category:Dreamcast_Windows_
 |-
 | Tomb Raider: The Last Revelation**
 | {{not_tested}}
-| ?
+| {{not_tested}}
 | ?
 |
 |
 | [WinCE]
 |-
 | Tony Hawk Pro Skater**
-| {{Runnable}}
-| GDI
-| EU
-| alpha0.28
+| {{Verified}}
+| {{Verified}}
+| GDI/EU
+| alpha0.45
 |
-| Trashy FMV. Menu are okish. Gameplay is black
+| FMV ok. Menu are okish. Gameplay is trash
 |-
 | Tony Hawk Pro Skater 2**
-| {{verified}}
+| {{Playable}}
+| {{Playable}}
 | ?
-| ?
-| alpha0.28
-|
-| Gren FMV. Menu ok. Gameplay very trashy
+| alpha0.45
+| 
+| FMV ok. Menu ok. Gameplay ok. Help me find the good combinaison of parameters to get optimal quality & performance
 |-
 | Toy Commander
 | {{Verified}}
-| GDI
-| EU
+| {{Verified}}
+| GDI/EU
 | alpha 0.28
 |
 | Correct. Around 10FPS in gameplay with CACHE_NORMAL
 |-
 | Triggerheart Exelica
 | {{Broken}}
-| ?
+| {{Broken}}
 | ?
 | alpha0.28
 |
 | Freeze at launch
 |-
 | Trickstyle
+| {{playable}}
 | {{Verified}}
-| GDI
-| EU
-| alpha0.30
+| GDI/EU
+| alpha0.47
 |
 | okish I guess
 |}
@@ -1822,16 +1972,16 @@ List of all WinCE games here : https://segaretro.org/Category:Dreamcast_Windows_
 
 {| class="wikitable sortable"
 ! Game title
-! style="width:10%" |Status
-! style="width:7%" |Format
-! style="width:7%" |Region
-! style="width:5%" |version
+! style="width:10%" |WiiU
+! style="width:10%" |Wii
+! style="width:5%" |Format
+! style="width:5%" |Version
 ! style="width:5%" |Preset
 ! style="width:50%" |Notes
 |-
-| Unreal Tournament**
+| Unreal Tournament*
 | {{not_tested}}
-| ?
+| {{not_tested}}
 | ?
 |
 |
@@ -1839,148 +1989,163 @@ List of all WinCE games here : https://segaretro.org/Category:Dreamcast_Windows_
 |-
 | Urban Chaos
 | {{not_tested}}
-| ?
+| {{not_tested}}
 | ?
 |
 |
 | [WinCE]
 |}
 
-
 ====== V/W/X/Y/Z ======
 
 {| class="wikitable sortable"
 ! Game title
-! style="width:10%" |Status
-! style="width:7%" |Format
-! style="width:7%" |Region
-! style="width:5%" |version
+! style="width:10%" |WiiU
+! style="width:10%" |Wii
+! style="width:5%" |Format
+! style="width:5%" |Version
 ! style="width:5%" |Preset
 ! style="width:50%" |Notes
 |-
 | Vigilante 8
 | {{Runnable}}
-| GDI
-| EU
+| {{Runnable}}
+| GDI/EU
 | alpha0.28
 |
 | Not good yet
 |-
 | Virtua Cop 2
 | {{Broken}}
-| GDI
-| ?
+| {{Broken}}
+| GDI/?
 | alpha0.06
 |
 | [WinCE] Black screen
 |-
 | Virtua Fighter 3b
 | {{Verified}}
-| GDI
-| EU
+| {{Verified}}
+| GDI/EU
 | alpha0.28
 |
 | Runs okish but not fast enough. Better with CACHE_NORMAL
 |-
 | Virtua Striker
 | {{Verified}}
-| GDI
-| EU
+| {{Verified}}
+| GDI/EU
 | alpha0.28
 |
 | Runs okish but not fast enough. Better with CACHE_NORMAL
 |-
 | Virtua Tennis
 | {{Verified}}
-| GDI
-| EU
-| alpha0.28
-| CACHE_NORMAL
-| Not very good
+| {{Verified}}
+| GDI/EU
+| alpha0.57
+| 
+| Not very good - FIXED DEPTH get some improvement on player selection but make some stuff disapears
 |-
 | Virtua Tennis 2
-| {{not_tested}}
-| ?
-| ?
+| {{Playable}}
+| {{Verified}}
+| GDI/EU
+| alpha0.57
+| CACHE_FAST
+| Not very good - can use CACHE_FAST (CACHE_VERY_FAST = buggy)
+|-
+| Volgarr
+| {{verified}}
+| {{verified}}
+| CDI
+| alpha0.45
 |
-|
-|
+| Verified by niuus
 |-
 | Wacky Racers
-| {{Runnable}}
-| GDI
-| EU
-| alpha0.28
+| {{Verified}}
+| {{Verified}}
+| GDI/EU
+| alpha0.47
 |
-| Green FMV. Main menu is off, like jojo bug ?
+| FMV ok. Menu ok. Need to format VMU to go further it seems
+|-
+| Walt disney Magical Racing rour
+| {{Playable}}
+| {{Playable}}
+| GDI
+| alpha0.47
+| CACHE_FAST
+| FMV ok. CACHE_FAST at least
 |-
 | Wetrix
 | {{Verified}}
-| GDI
-| EU
+| {{Verified}}
+| GDI/EU
 | alpha0.28
 |
 | Some render problems
 |-
 | What's Shenmue ?
 | {{Verified}}
+| {{Verified}}
 | GDI
-|
 | alpha0.31
 |
 | Menu more or less ok. Some textures are missing. 7 FPS in CACHE_NORMAL
 |-
 | Who Wants to Be a Millionaire v1.000 (2000)
-| {{Broken}}
-| GDI
-| France
-| alpha0.34 /alpha0.35/alpha0.36
-|
-| Works with alpha0.34 and sound accelerate or slower and crackles./ No longer playable with alpha 0.35 and 0.36 because of no display.
+| {{Supported}} ****
+| {{Playable}}
+| GDI/France
+| alpha0.56
+| BG_POLY / AUDIO BUFFERS 1
+| BG_POLY needed for background to display / Good sound (slower at the introduction and after with the public joker, but not a regression)
 |-
 | Wild Metal
-| {{not_tested}}
+| {{Broken}}
+| {{Broken}}
 | ?
-| ?
+| alpha0.57
 |
-|
-| [WinCE]
+| [WinCE] (freeze : White Screen)
 |-
 | Worms Armageddon**
 | {{Broken}}
-| GDI
-| Europe
+| {{Broken}}
+| GDI/Europe
 | alpha0.09
 |
 | [WinCE]
 |-
 | Worms Pinball (prototype)
 | {{Broken}}
-| GDI
-| ?
+| {{Broken}}
+| GDI/?
 | alpha0.13
 |
 | Freeze (Probably a WinCE game, but try retesting)
 |-
 | Worms World Party**
 | {{Broken}}
-| GDI
-| Europe
+| {{Broken}}
+| GDI/Europe
 | alpha0.09
 |
 | [WinCE]
 |-
 | You Are a Tomato (homebrew)
 | {{Broken}}
-| CDI
-| ?
+| {{Broken}}
+| CDI/?
 | alpha0.28
 |
 | Freeze
 |-
 | Zero Gunner 2
 | {{not_tested}}
-| ?
+| {{not_tested}}
 | ?
 |
 |
@@ -1988,8 +2153,8 @@ List of all WinCE games here : https://segaretro.org/Category:Dreamcast_Windows_
 |-
 | Zombie Revenge
 | {{Playable}}
-| GDI
-| ?
+| {{Playable}}
+| GDI/?
 | alpha0.17
 |
 | No sound, lot of graphical issues. Very playable.
@@ -2024,13 +2189,12 @@ Gamecube :
 * Resident Evil 3
 * Resident Evil Code Veronica X
 * San Francisco Rush 2049 (Midway Arcade Treasures 3)
-* Skies of Arcadia Legends
-* Sonic Adventure DX
-* Sonic Adventure 2 Battle
+* Skies of Arcadia Legends (See Note 1)
+* Sonic Adventure DX (See Note 2)
+* Sonic Adventure 2 Battle (See Note 2)
 * Soulcalibur II
 
-
-Wii : 
+Wii :
 
 * Bomberman Blast (WiiWare) (very similar, 8 player game possible)
 * Densha De Go (ok it's not the same but I love densha de go so yeah)
@@ -2040,3 +2204,8 @@ Wii :
 * Rush Rush Rally (WiiWare)
 * Samba de Amigo
 * Sega Bass Fishing
+
+==== Notes ====
+
+# Skies of Arcadia Legends has a different OST from the Dreamcast version.
+# Sonic Adventure 1 & 2 have different graphical presentations (Certain lighting effects are broken on the GC version).
